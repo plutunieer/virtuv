@@ -1,0 +1,128 @@
+{
+  "version": 8,
+  "knoten": [
+    {
+      "id": "start",
+      "typ": "start",
+      "text": "Besucher öffnet virtuv.dev",
+      "anforderungen": [
+        "U1",
+        "U12",
+        "U14"
+      ]
+    },
+    {
+      "id": "hero",
+      "typ": "schritt",
+      "text": "Plan first, then build",
+      "anforderungen": [
+        "U2",
+        "U6",
+        "U9",
+        "U13"
+      ]
+    },
+    {
+      "id": "aktion",
+      "typ": "nutzer",
+      "text": "App herunterladen",
+      "anforderungen": [
+        "U8",
+        "U15"
+      ]
+    },
+    {
+      "id": "problem",
+      "typ": "schritt",
+      "text": "Problem: KI rät drauflos",
+      "anforderungen": [
+        "U3",
+        "U7"
+      ]
+    },
+    {
+      "id": "loesung",
+      "typ": "schritt",
+      "text": "Lösung: erst Ablauf planen",
+      "anforderungen": [
+        "U4",
+        "U6"
+      ]
+    },
+    {
+      "id": "schritte",
+      "typ": "schritt",
+      "text": "So geht's: drei Schritte",
+      "anforderungen": [
+        "U5"
+      ]
+    },
+    {
+      "id": "faq",
+      "typ": "schritt",
+      "text": "Häufige Fragen",
+      "anforderungen": [
+        "U11"
+      ]
+    }
+  ],
+  "kanten": [
+    {
+      "von": "start",
+      "nach": "hero"
+    },
+    {
+      "von": "hero",
+      "nach": "aktion",
+      "bedingung": "Knopf oben"
+    },
+    {
+      "von": "hero",
+      "nach": "problem"
+    },
+    {
+      "von": "problem",
+      "nach": "loesung"
+    },
+    {
+      "von": "loesung",
+      "nach": "schritte"
+    },
+    {
+      "von": "schritte",
+      "nach": "faq"
+    }
+  ],
+  "positionen": {
+    "start": {
+      "x": 135,
+      "y": 12
+    },
+    "hero": {
+      "x": 125,
+      "y": 101
+    },
+    "aktion": {
+      "x": 5,
+      "y": 198
+    },
+    "problem": {
+      "x": 245,
+      "y": 198
+    },
+    "loesung": {
+      "x": 125,
+      "y": 295
+    },
+    "schritte": {
+      "x": 125,
+      "y": 392
+    },
+    "faq": {
+      "x": 125,
+      "y": 489
+    }
+  },
+  "kommentare": [],
+  "antworten": {}
+}

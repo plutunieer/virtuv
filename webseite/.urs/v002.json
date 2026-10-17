@@ -1,0 +1,211 @@
+{
+  "version": 2,
+  "erstellt": "2026-10-07T09:55:29.687Z",
+  "inhalt": {
+    "name": "URS-App Webseite (Entwurf 1)",
+    "zweck": "Vibe-Coder verstehen in 30 Sekunden, welches Problem die URS-App löst und wie.",
+    "zielgruppe": "Nicht-Programmierer, die mit KI im Terminal Apps bauen (Vibe-Coder)",
+    "anforderungen": [
+      {
+        "id": "U1",
+        "text": "Die Seite ist eine einzelne Startseite mit wenigen, klar getrennten Abschnitten.",
+        "prio": "muss"
+      },
+      {
+        "id": "U2",
+        "text": "Oben steht: „Erst planen, dann bauen lassen.“ plus ein Satz, wie das geht.",
+        "prio": "muss"
+      },
+      {
+        "id": "U3",
+        "text": "Ein Abschnitt zeigt das Problem: KI baut los, bevor klar ist, was gebaut werden soll.",
+        "prio": "muss"
+      },
+      {
+        "id": "U4",
+        "text": "Ein Abschnitt zeigt die Lösung: erst Ablauf als Diagramm, dann Freigabe, dann bauen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U5",
+        "text": "Ein Abschnitt erklärt in drei Schritten, wie man die App benutzt.",
+        "prio": "muss"
+      },
+      {
+        "id": "U6",
+        "text": "Ein Bild der Werkbank zeigt Terminal links und Diagramm rechts.",
+        "prio": "muss"
+      },
+      {
+        "id": "U7",
+        "text": "Jeder Abschnitt hat höchstens drei kurze Sätze, ohne Fachbegriffe ohne Erklärung.",
+        "prio": "muss"
+      },
+      {
+        "id": "U8",
+        "text": "Ein Knopf führt zur Handlung (Herunterladen oder Warteliste).",
+        "prio": "muss"
+      },
+      {
+        "id": "U9",
+        "text": "Aussehen wie Vorlage Aoutive: fast weiß, schwarz, grau, große Überschriften, feine Linien, Strichzeichnungen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U10",
+        "text": "Die Seite funktioniert auf dem Handy ohne seitliches Scrollen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U11",
+        "text": "Ein kurzer Fragen-Abschnitt beantwortet die drei häufigsten Einwände.",
+        "prio": "soll"
+      }
+    ],
+    "knoten": [
+      {
+        "id": "start",
+        "typ": "start",
+        "text": "Besucher öffnet Seite",
+        "anforderungen": [
+          "U1"
+        ]
+      },
+      {
+        "id": "hero",
+        "typ": "schritt",
+        "text": "Erst planen, dann bauen",
+        "anforderungen": [
+          "U2",
+          "U6",
+          "U9"
+        ]
+      },
+      {
+        "id": "problem",
+        "typ": "schritt",
+        "text": "Problem: KI rät drauflos",
+        "anforderungen": [
+          "U3",
+          "U7"
+        ]
+      },
+      {
+        "id": "loesung",
+        "typ": "schritt",
+        "text": "Lösung: erst Ablauf planen",
+        "anforderungen": [
+          "U4",
+          "U6"
+        ]
+      },
+      {
+        "id": "schritte",
+        "typ": "schritt",
+        "text": "So geht's: drei Schritte",
+        "anforderungen": [
+          "U5"
+        ]
+      },
+      {
+        "id": "faq",
+        "typ": "schritt",
+        "text": "Häufige Fragen",
+        "anforderungen": [
+          "U11"
+        ]
+      },
+      {
+        "id": "cta",
+        "typ": "entscheidung",
+        "text": "Will es ausprobieren?",
+        "anforderungen": [
+          "U8"
+        ]
+      },
+      {
+        "id": "aktion",
+        "typ": "nutzer",
+        "text": "Herunterladen / Warteliste",
+        "anforderungen": [
+          "U8"
+        ]
+      },
+      {
+        "id": "ende",
+        "typ": "ende",
+        "text": "Seite verlassen",
+        "anforderungen": [
+          "U1"
+        ]
+      }
+    ],
+    "kanten": [
+      {
+        "von": "start",
+        "nach": "hero"
+      },
+      {
+        "von": "hero",
+        "nach": "problem"
+      },
+      {
+        "von": "problem",
+        "nach": "loesung"
+      },
+      {
+        "von": "loesung",
+        "nach": "schritte"
+      },
+      {
+        "von": "schritte",
+        "nach": "faq"
+      },
+      {
+        "von": "faq",
+        "nach": "cta"
+      },
+      {
+        "von": "cta",
+        "nach": "aktion",
+        "bedingung": "ja"
+      },
+      {
+        "von": "cta",
+        "nach": "ende",
+        "bedingung": "nein"
+      }
+    ],
+    "fragen": [
+      {
+        "id": "F1",
+        "text": "Produktname auf der Seite — Vorschlag „URS-Werkbank“. Passt das?"
+      },
+      {
+        "id": "F2",
+        "text": "Hauptknopf — Vorschlag: vorerst nur Platzhalter „Bald verfügbar“. Passt das?"
+      },
+      {
+        "id": "F3",
+        "text": "Sprache — Vorschlag: nur Deutsch. Passt das?"
+      },
+      {
+        "id": "F4",
+        "text": "Preis — Vorschlag: kein Preis auf der Seite. Passt das?"
+      },
+      {
+        "id": "F5",
+        "text": "Bild — Vorschlag: nachgezeichnete Werkbank statt echtem Screenshot. Passt das?"
+      }
+    ],
+    "sicherheit": [
+      "Keine Besucherdaten speichern oder versenden in diesem Entwurf"
+    ],
+    "nichtEnthalten": [
+      "Unterseiten (Preise, Blog, Über uns, Rechtliches)",
+      "Veröffentlichen im Internet / eigene Domain",
+      "Kopieren von Bildern, Texten oder Code der Framer-Vorlage",
+      "Englische Fassung"
+    ]
+  }
+}

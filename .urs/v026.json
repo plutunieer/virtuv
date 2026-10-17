@@ -1,0 +1,959 @@
+{
+  "version": 26,
+  "erstellt": "2026-10-11T12:22:01.873Z",
+  "inhalt": {
+    "name": "Virtuv",
+    "zweck": "Terminal: plan every project as a flow first, approve it, then build it in the same terminal.",
+    "anforderungen": [
+      {
+        "id": "U1",
+        "text": "Flow appears in browser 10 seconds after the idea.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U2",
+        "text": "New version opens in browser by itself.",
+        "prio": "muss"
+      },
+      {
+        "id": "U3",
+        "text": "Blocks: max 4 words.",
+        "prio": "muss"
+      },
+      {
+        "id": "U4",
+        "text": "Changes since last version highlighted in color.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U5",
+        "text": "Comments survive a reload.",
+        "prio": "muss"
+      },
+      {
+        "id": "U6",
+        "text": "Add, move, delete blocks and draw arrows by mouse.",
+        "prio": "muss"
+      },
+      {
+        "id": "U7",
+        "text": "Approve locked while a comment or question is open.",
+        "prio": "muss"
+      },
+      {
+        "id": "U8",
+        "text": "Claude receives all comments and changes.",
+        "prio": "muss"
+      },
+      {
+        "id": "U9",
+        "text": "Approved version cannot be changed.",
+        "prio": "muss"
+      },
+      {
+        "id": "U10",
+        "text": "Claude receives the URS only after approval.",
+        "prio": "muss"
+      },
+      {
+        "id": "U11",
+        "text": "One sentence per requirement, no source or extra fields.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U12",
+        "text": "A new block never covers an existing one.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U13",
+        "text": "Shift+Enter: new line in terminal and block field, without sending.",
+        "prio": "muss"
+      },
+      {
+        "id": "U14",
+        "text": "Folder column shown/hidden by click.",
+        "prio": "muss"
+      },
+      {
+        "id": "U15",
+        "text": "Side panel shown/hidden by click.",
+        "prio": "muss"
+      },
+      {
+        "id": "U16",
+        "text": "Before approval: plan only, no building.",
+        "prio": "muss"
+      },
+      {
+        "id": "U17",
+        "text": "After approval: build only the approved version, in the same terminal.",
+        "prio": "muss"
+      },
+      {
+        "id": "U18",
+        "text": "New wish while building: back to planning.",
+        "prio": "muss"
+      },
+      {
+        "id": "U19",
+        "text": "Window header shows: Planning or Building.",
+        "prio": "muss"
+      },
+      {
+        "id": "U20",
+        "text": "Hidden columns stay hidden after restart.",
+        "prio": "muss"
+      },
+      {
+        "id": "U21",
+        "text": "Terminal shown/hidden by click.",
+        "prio": "muss"
+      },
+      {
+        "id": "U22",
+        "text": "Column widths draggable by mouse.",
+        "prio": "muss"
+      },
+      {
+        "id": "U23",
+        "text": "Column widths kept after restart.",
+        "prio": "muss"
+      },
+      {
+        "id": "U24",
+        "text": "Claude ticks off addressed comments itself.",
+        "prio": "muss"
+      },
+      {
+        "id": "U25",
+        "text": "Claude uses the user's own Claude Code settings and tools.",
+        "prio": "muss"
+      },
+      {
+        "id": "U26",
+        "text": "Remove project from overview without deleting files.",
+        "prio": "muss"
+      },
+      {
+        "id": "U27",
+        "text": "Ctrl+T opens a new chat without closing the others.",
+        "prio": "muss"
+      },
+      {
+        "id": "U28",
+        "text": "Side panel: button to collapse, strip to expand.",
+        "prio": "muss"
+      },
+      {
+        "id": "U29",
+        "text": "Clicking a block opens the side panel.",
+        "prio": "muss"
+      },
+      {
+        "id": "U30",
+        "text": "Block field: input and button only, no hint texts.",
+        "prio": "muss"
+      },
+      {
+        "id": "U31",
+        "text": "Unapproved blocks and requirements carry a “new” tag.",
+        "prio": "muss"
+      },
+      {
+        "id": "U32",
+        "text": "Chat name = project name, no extra line.",
+        "prio": "muss"
+      },
+      {
+        "id": "U33",
+        "text": "Double-click renames chat permanently.",
+        "prio": "muss"
+      },
+      {
+        "id": "U34",
+        "text": "New chat always asks for a folder.",
+        "prio": "muss"
+      },
+      {
+        "id": "U35",
+        "text": "Ctrl+W closes chat, Ctrl+Tab switches, Cmd+1–9 jumps to chat.",
+        "prio": "muss"
+      },
+      {
+        "id": "U36",
+        "text": "Folder names with leading/trailing spaces can be opened.",
+        "prio": "muss"
+      },
+      {
+        "id": "U37",
+        "text": "URS of a subfolder can be planned in the same chat.",
+        "prio": "muss"
+      },
+      {
+        "id": "U38",
+        "text": "Claude sees the flowchart as an image after every draft.",
+        "prio": "muss"
+      },
+      {
+        "id": "U39",
+        "text": "Screenshots insertable via Cmd+V or drag; Claude sees them.",
+        "prio": "muss"
+      },
+      {
+        "id": "U40",
+        "text": "Blocks, arrows, labels never overlap.",
+        "prio": "muss"
+      },
+      {
+        "id": "U41",
+        "text": "Flowchart arranges itself top to bottom.",
+        "prio": "muss"
+      },
+      {
+        "id": "U42",
+        "text": "U numbers only in side panel, not on blocks.",
+        "prio": "muss"
+      },
+      {
+        "id": "U43",
+        "text": "Claude fixes overlaps before the user sees the version.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U44",
+        "text": "Blocks moved by hand stay in place.",
+        "prio": "muss"
+      },
+      {
+        "id": "U45",
+        "text": "“Tidy up” button rearranges the flowchart.",
+        "prio": "muss"
+      },
+      {
+        "id": "U46",
+        "text": "Version number top left next to app name.",
+        "prio": "muss"
+      },
+      {
+        "id": "U47",
+        "text": "Every new build: higher version number.",
+        "prio": "muss"
+      },
+      {
+        "id": "U48",
+        "text": "Each requirement: max 12 words.",
+        "prio": "muss"
+      },
+      {
+        "id": "U49",
+        "text": "Comparisons like “as in Warp” are forbidden.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U50",
+        "text": "Each requirement checked for SMART independently, not by its author.",
+        "prio": "muss"
+      },
+      {
+        "id": "U51",
+        "text": "Claude fixes SMART violations before the user sees the version.",
+        "prio": "muss"
+      },
+      {
+        "id": "U52",
+        "text": "Each requirement belongs to exactly one block.",
+        "prio": "muss"
+      },
+      {
+        "id": "U53",
+        "text": "Approval only by button, never by Claude.",
+        "prio": "muss"
+      },
+      {
+        "id": "U54",
+        "text": "SMART result per requirement visible in side panel.",
+        "prio": "muss"
+      },
+      {
+        "id": "U55",
+        "text": "Approve locked while a requirement fails SMART.",
+        "prio": "muss"
+      },
+      {
+        "id": "U56",
+        "text": "Claude fixes overlaps before the user sees them.",
+        "prio": "muss"
+      },
+      {
+        "id": "U57",
+        "text": "Default language English: interface, blocks, requirements.",
+        "prio": "muss"
+      },
+      {
+        "id": "U58",
+        "text": "User can switch the language.",
+        "prio": "muss"
+      },
+      {
+        "id": "U59",
+        "text": "Chosen language kept after restart.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U60",
+        "text": "App name: Virtuv.",
+        "prio": "muss"
+      },
+      {
+        "id": "U61",
+        "text": "Every project follows: plan, code, review, test, commit.",
+        "prio": "muss"
+      },
+      {
+        "id": "U62",
+        "text": "Every code change reviewed by an independent reviewer, not its author.",
+        "prio": "muss"
+      },
+      {
+        "id": "U63",
+        "text": "Testing starts only after all review findings are fixed.",
+        "prio": "muss"
+      },
+      {
+        "id": "U64",
+        "text": "Before commit: each change tested against its approved requirement.",
+        "prio": "muss"
+      },
+      {
+        "id": "U65",
+        "text": "Failed test: back to coding, no commit.",
+        "prio": "muss"
+      },
+      {
+        "id": "U66",
+        "text": "Every passed change committed to git with a message.",
+        "prio": "muss"
+      },
+      {
+        "id": "U67",
+        "text": "Test result per change shown in terminal: pass or fail.",
+        "prio": "muss"
+      }
+    ],
+    "knoten": [
+      {
+        "id": "idee",
+        "typ": "start",
+        "text": "Idea in terminal",
+        "anforderungen": [
+          "U13",
+          "U25",
+          "U27",
+          "U32",
+          "U33",
+          "U35",
+          "U39",
+          "U46",
+          "U57",
+          "U60"
+        ]
+      },
+      {
+        "id": "ordner",
+        "typ": "nutzer",
+        "text": "Choose folder",
+        "anforderungen": [
+          "U26",
+          "U34",
+          "U36",
+          "U37"
+        ]
+      },
+      {
+        "id": "zeichnen",
+        "typ": "schritt",
+        "text": "Claude plans flow",
+        "anforderungen": [
+          "U2",
+          "U3",
+          "U16",
+          "U19",
+          "U41",
+          "U48",
+          "U52",
+          "U61"
+        ]
+      },
+      {
+        "id": "selbstsicht",
+        "typ": "schritt",
+        "text": "Claude checks image",
+        "anforderungen": [
+          "U38",
+          "U40"
+        ]
+      },
+      {
+        "id": "sauber",
+        "typ": "entscheidung",
+        "text": "Image clean?",
+        "anforderungen": [
+          "U56"
+        ]
+      },
+      {
+        "id": "smart",
+        "typ": "schritt",
+        "text": "Independent SMART check",
+        "anforderungen": [
+          "U50"
+        ]
+      },
+      {
+        "id": "smartok",
+        "typ": "entscheidung",
+        "text": "SMART met?",
+        "anforderungen": [
+          "U51"
+        ]
+      },
+      {
+        "id": "pruefen",
+        "typ": "nutzer",
+        "text": "Review flow",
+        "anforderungen": [
+          "U31",
+          "U42",
+          "U45",
+          "U54"
+        ]
+      },
+      {
+        "id": "ansicht",
+        "typ": "nutzer",
+        "text": "Set view & language",
+        "anforderungen": [
+          "U14",
+          "U15",
+          "U20",
+          "U21",
+          "U22",
+          "U23",
+          "U28",
+          "U58"
+        ]
+      },
+      {
+        "id": "kommentieren",
+        "typ": "nutzer",
+        "text": "Comment & edit",
+        "anforderungen": [
+          "U5",
+          "U6",
+          "U29",
+          "U30",
+          "U44"
+        ]
+      },
+      {
+        "id": "erledigt",
+        "typ": "entscheidung",
+        "text": "All resolved?",
+        "anforderungen": [
+          "U7",
+          "U55"
+        ]
+      },
+      {
+        "id": "ueberarbeiten",
+        "typ": "schritt",
+        "text": "Claude revises",
+        "anforderungen": [
+          "U8",
+          "U24"
+        ]
+      },
+      {
+        "id": "freigeben",
+        "typ": "nutzer",
+        "text": "Approve",
+        "anforderungen": [
+          "U53"
+        ]
+      },
+      {
+        "id": "eingefroren",
+        "typ": "speicher",
+        "text": "Version frozen",
+        "anforderungen": [
+          "U9"
+        ]
+      },
+      {
+        "id": "bauen",
+        "typ": "schritt",
+        "text": "Claude codes in terminal",
+        "anforderungen": [
+          "U10",
+          "U17"
+        ]
+      },
+      {
+        "id": "review",
+        "typ": "schritt",
+        "text": "Independent code review",
+        "anforderungen": [
+          "U62"
+        ]
+      },
+      {
+        "id": "reviewok",
+        "typ": "entscheidung",
+        "text": "Findings fixed?",
+        "anforderungen": [
+          "U63"
+        ]
+      },
+      {
+        "id": "test",
+        "typ": "schritt",
+        "text": "Claude tests",
+        "anforderungen": [
+          "U64",
+          "U67"
+        ]
+      },
+      {
+        "id": "testok",
+        "typ": "entscheidung",
+        "text": "Test passed?",
+        "anforderungen": [
+          "U65"
+        ]
+      },
+      {
+        "id": "commit",
+        "typ": "speicher",
+        "text": "Commit",
+        "anforderungen": [
+          "U66"
+        ]
+      },
+      {
+        "id": "wunsch",
+        "typ": "entscheidung",
+        "text": "New wish?",
+        "anforderungen": [
+          "U18"
+        ]
+      },
+      {
+        "id": "fertig",
+        "typ": "ende",
+        "text": "App done",
+        "anforderungen": [
+          "U47"
+        ]
+      }
+    ],
+    "kanten": [
+      {
+        "von": "idee",
+        "nach": "ordner"
+      },
+      {
+        "von": "ordner",
+        "nach": "zeichnen"
+      },
+      {
+        "von": "zeichnen",
+        "nach": "selbstsicht"
+      },
+      {
+        "von": "selbstsicht",
+        "nach": "sauber"
+      },
+      {
+        "von": "sauber",
+        "nach": "smart",
+        "bedingung": "yes"
+      },
+      {
+        "von": "sauber",
+        "nach": "zeichnen",
+        "bedingung": "no"
+      },
+      {
+        "von": "smart",
+        "nach": "smartok"
+      },
+      {
+        "von": "smartok",
+        "nach": "pruefen",
+        "bedingung": "yes"
+      },
+      {
+        "von": "smartok",
+        "nach": "zeichnen",
+        "bedingung": "no"
+      },
+      {
+        "von": "pruefen",
+        "nach": "ansicht"
+      },
+      {
+        "von": "ansicht",
+        "nach": "pruefen"
+      },
+      {
+        "von": "pruefen",
+        "nach": "kommentieren"
+      },
+      {
+        "von": "kommentieren",
+        "nach": "erledigt"
+      },
+      {
+        "von": "erledigt",
+        "nach": "freigeben",
+        "bedingung": "yes"
+      },
+      {
+        "von": "erledigt",
+        "nach": "ueberarbeiten",
+        "bedingung": "no"
+      },
+      {
+        "von": "ueberarbeiten",
+        "nach": "zeichnen"
+      },
+      {
+        "von": "freigeben",
+        "nach": "eingefroren"
+      },
+      {
+        "von": "eingefroren",
+        "nach": "bauen"
+      },
+      {
+        "von": "bauen",
+        "nach": "review"
+      },
+      {
+        "von": "review",
+        "nach": "reviewok"
+      },
+      {
+        "von": "reviewok",
+        "nach": "test",
+        "bedingung": "yes"
+      },
+      {
+        "von": "reviewok",
+        "nach": "bauen",
+        "bedingung": "no"
+      },
+      {
+        "von": "test",
+        "nach": "testok"
+      },
+      {
+        "von": "testok",
+        "nach": "commit",
+        "bedingung": "yes"
+      },
+      {
+        "von": "testok",
+        "nach": "bauen",
+        "bedingung": "no"
+      },
+      {
+        "von": "commit",
+        "nach": "wunsch"
+      },
+      {
+        "von": "wunsch",
+        "nach": "zeichnen",
+        "bedingung": "yes"
+      },
+      {
+        "von": "wunsch",
+        "nach": "fertig",
+        "bedingung": "no"
+      }
+    ],
+    "fragen": [
+      {
+        "id": "F1",
+        "text": "Commit: local only, or also push to GitHub?"
+      },
+      {
+        "id": "F2",
+        "text": "Commit on its own branch, or directly on the current branch?"
+      }
+    ],
+    "sicherheit": [
+      "Reachable only on this Mac.",
+      "Other websites can neither embed nor remote-control the app.",
+      "The flowchart image shows only the flowchart, never the rest of the screen."
+    ],
+    "nichtEnthalten": [
+      "AI inside the app itself",
+      "Publishing on npm",
+      "Signing with Apple account, Windows",
+      "Own change list or version comparison",
+      "Controlling the screen or other apps",
+      "Automatic app updates"
+    ]
+  },
+  "smart": {
+    "U2": {
+      "ok": true,
+      "grund": "Clear, testable trigger and outcome."
+    },
+    "U3": {
+      "ok": true,
+      "grund": "Specific, measurable word limit."
+    },
+    "U5": {
+      "ok": true,
+      "grund": "Clear and testable by reloading."
+    },
+    "U6": {
+      "ok": true,
+      "grund": "Clear set of mouse operations, testable."
+    },
+    "U7": {
+      "ok": true,
+      "grund": "Clear lock condition, testable."
+    },
+    "U8": {
+      "ok": true,
+      "grund": "Clear and checkable through the Claude input."
+    },
+    "U9": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U10": {
+      "ok": true,
+      "grund": "Clear timing condition, testable."
+    },
+    "U13": {
+      "ok": true,
+      "grund": "Specific shortcut and behaviour, testable."
+    },
+    "U14": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U15": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U16": {
+      "ok": true,
+      "grund": "Clear phase rule, testable."
+    },
+    "U17": {
+      "ok": true,
+      "grund": "Clear phase rule, testable."
+    },
+    "U18": {
+      "ok": true,
+      "grund": "Clear state transition, testable."
+    },
+    "U19": {
+      "ok": true,
+      "grund": "Specific display values, testable."
+    },
+    "U20": {
+      "ok": true,
+      "grund": "Clear persistence rule, testable."
+    },
+    "U21": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U22": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U23": {
+      "ok": true,
+      "grund": "Clear persistence rule, testable."
+    },
+    "U24": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U25": {
+      "ok": true,
+      "grund": "Clear and checkable."
+    },
+    "U26": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U27": {
+      "ok": true,
+      "grund": "Specific, single expectation, testable by pressing Ctrl+T with several chats open."
+    },
+    "U28": {
+      "ok": true,
+      "grund": "Clear controls, testable."
+    },
+    "U29": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U30": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U31": {
+      "ok": true,
+      "grund": "Clear, testable condition: items not in the approved version show a “new” tag."
+    },
+    "U32": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U33": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U34": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U35": {
+      "ok": true,
+      "grund": "Specific shortcuts, each testable."
+    },
+    "U36": {
+      "ok": true,
+      "grund": "Clear edge case, testable."
+    },
+    "U37": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U38": {
+      "ok": true,
+      "grund": "Clear trigger, testable."
+    },
+    "U39": {
+      "ok": true,
+      "grund": "Specific input methods, testable."
+    },
+    "U40": {
+      "ok": true,
+      "grund": "Clear and visually testable."
+    },
+    "U41": {
+      "ok": true,
+      "grund": "Clear layout direction, testable."
+    },
+    "U42": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U44": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U45": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U46": {
+      "ok": true,
+      "grund": "Specific position, testable."
+    },
+    "U47": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U48": {
+      "ok": true,
+      "grund": "Specific, measurable by counting words per requirement, and concise."
+    },
+    "U50": {
+      "ok": true,
+      "grund": "Clear and checkable."
+    },
+    "U51": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U52": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U53": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U54": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U55": {
+      "ok": true,
+      "grund": "Clear lock condition, testable."
+    },
+    "U56": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U57": {
+      "ok": true,
+      "grund": "Specific default and scope, testable."
+    },
+    "U58": {
+      "ok": true,
+      "grund": "Clear and testable."
+    },
+    "U60": {
+      "ok": true,
+      "grund": "Specific and testable."
+    },
+    "U61": {
+      "ok": true,
+      "grund": "Clear, fixed order of phases; whether each project follows it can be checked."
+    },
+    "U62": {
+      "ok": true,
+      "grund": "Specific and testable: a separate reviewer, not the author, checks every code change."
+    },
+    "U63": {
+      "ok": true,
+      "grund": "Clear condition that can be checked: testing starts only once no review findings are open."
+    },
+    "U65": {
+      "ok": true,
+      "grund": "Clear, testable rule for a failed test: return to coding, no commit."
+    },
+    "U66": {
+      "ok": true,
+      "grund": "Testable: each passed change appears as a git commit with a message."
+    },
+    "U64": {
+      "ok": true,
+      "grund": "Specific, short and testable by checking that every commit has a test against its approved requirement."
+    },
+    "U67": {
+      "ok": true,
+      "grund": "Clear and testable: the terminal shows pass or fail for each change."
+    }
+  }
+}

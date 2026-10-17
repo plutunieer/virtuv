@@ -1,0 +1,11 @@
+{
+  "description": "Only the user approves: Claude may not edit the plan files or call the approve endpoint.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/schutz.mjs\"" }]
+      }
+    ]
+  }
+}

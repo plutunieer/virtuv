@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{font-family:-apple-system,system-ui,sans-serif;background:#f6f7f9;color:#1a1d24;margin:0;padding:24px}
+h1{font-size:18px;margin:0 0 4px}p.s{margin:0 0 20px;color:#555;font-size:13px}
+.row{display:flex;gap:24px;flex-wrap:wrap}
+.c{background:#fff;border:1px solid #e3e6ea;border-radius:14px;padding:18px;width:250px}
+.c h2{font-size:15px;margin:0 0 4px}.c p{font-size:12.5px;color:#555;margin:0 0 12px;min-height:50px}
+.small{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:12px;color:#666}
+.dark{background:#1e1f22;padding:6px;border-radius:6px;display:flex}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#8b6dff"/><stop offset="1" stop-color="#3a1fb8"/></linearGradient>
+<radialGradient id="glow" cx="0.3" cy="0.15" r="0.8"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="bg2" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#2a2350"/><stop offset="1" stop-color="#120d2b"/></linearGradient>
+<linearGradient id="vio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d4dff"/></linearGradient>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#1a0b66" flood-opacity=".35"/></filter>
+
+<symbol id="B1" viewBox="0 0 100 100">
+<rect width="100" height="100" rx="22" fill="url(#bg1)"/><rect width="100" height="100" rx="22" fill="url(#glow)"/>
+<g filter="url(#sh)">
+<path d="M50 27 V36 M50 64 V73" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+<rect x="29" y="12" width="42" height="15" rx="7.5" fill="#fff"/>
+<path d="M50 34 L68 50 L50 66 L32 50Z" fill="#34d399" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/>
+<path d="M42 50.5 L47.5 56 L58 45" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="29" y="73" width="42" height="15" rx="4" fill="#fff"/></g></symbol>
+
+<symbol id="B2" viewBox="0 0 100 100">
+<rect width="100" height="100" rx="22" fill="url(#bg2)"/><rect width="100" height="100" rx="22" fill="url(#glow)" opacity=".5"/>
+<path d="M50 27 V36 M50 64 V73" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
+<rect x="29" y="12" width="42" height="15" rx="7.5" fill="url(#vio)"/>
+<path d="M50 34 L68 50 L50 66 L32 50Z" fill="#34d399" stroke-linejoin="round"/>
+<path d="M42 50.5 L47.5 56 L58 45" fill="none" stroke="#0f2a22" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="29" y="73" width="42" height="15" rx="4" fill="url(#vio)"/></symbol>
+
+<symbol id="B3" viewBox="0 0 100 100">
+<rect width="100" height="100" rx="22" fill="url(#bg1)"/><rect width="100" height="100" rx="22" fill="url(#glow)"/>
+<g filter="url(#sh)">
+<path d="M50 30 V35 M50 65 V70" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+<rect x="24" y="12" width="52" height="18" rx="9" fill="#fff" opacity=".55"/>
+<path d="M50 33 L70 50 L50 67 L30 50Z" fill="#fff"/>
+<path d="M41 50.5 L47.5 57 L59 44" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="70" width="52" height="18" rx="4.5" fill="#fff"/></g></symbol>
+</defs></svg>
+
+<h1>Entwurf B, verfeinert – drei Varianten</h1>
+<p class="s">Gemeinsam: dickere Linien, leichter Lichtschein, Raute größer. Unten jeweils 32 px auf hell und dunkel.</p>
+<div class="row">
+<div class="c"><h2>B1 · Grüne Freigabe</h2><p>Wie B, aber die Raute leuchtet grün mit weißem Haken. Die Freigabe springt sofort ins Auge.</p>
+<svg width="200" height="200"><use href="#B1"/></svg>
+<div class="small"><svg width="32" height="32"><use href="#B1"/></svg><span class="dark"><svg width="32" height="32"><use href="#B1"/></svg></span>32 px</div></div>
+
+<div class="c"><h2>B2 · Nachtmodus</h2><p>Dunkler Grund, violette Blöcke, grüne Raute. Passt zum Terminal, wirkt edler.</p>
+<svg width="200" height="200"><use href="#B2"/></svg>
+<div class="small"><svg width="32" height="32"><use href="#B2"/></svg><span class="dark"><svg width="32" height="32"><use href="#B2"/></svg></span>32 px</div></div>
+
+<div class="c"><h2>B3 · Weg nach unten</h2><p>Plan oben noch blass, Bau unten kräftig: zeigt, dass erst nach der Freigabe gebaut wird.</p>
+<svg width="200" height="200"><use href="#B3"/></svg>
+<div class="small"><svg width="32" height="32"><use href="#B3"/></svg><span class="dark"><svg width="32" height="32"><use href="#B3"/></svg></span>32 px</div></div>
+</div></body></html>

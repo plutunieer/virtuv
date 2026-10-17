@@ -1,0 +1,217 @@
+:root{--ink:#132038;--muted:#4a5a74;--rand:#dfe8f5;--bg:#f7fafd;--blau:#1769e0}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--blau)}
+select,button,textarea,input{font:inherit;color:var(--ink)}
+.seite{height:100%;display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 16px;background:#fff;border-bottom:1px solid var(--rand)}
+header h1{font-size:18px;margin:0}
+header h1 a{color:var(--ink);text-decoration:none}
+.badge{border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700;border:1px solid}
+.b-entwurf{background:#fff6e8;border-color:#f0d3a0;color:#8a5b12}
+.b-frei{background:#f0faf4;border-color:#bfe3cd;color:#1d6b42}
+.b-alt{background:#f3f5f8;border-color:#dbe2ec;color:#4a5a74}
+select{border:1px solid var(--rand);border-radius:6px;padding:3px 6px;background:#fff}
+.sp{flex:1}
+button{border:1px solid var(--rand);background:#fff;border-radius:8px;padding:5px 12px;cursor:pointer}
+button:hover{border-color:#9fb4d2}
+button.haupt{background:#e8f7ef;border-color:#087b52;color:#0b5a3c;font-weight:700}
+button:disabled{background:#f3f5f8;border-color:#dbe2ec;color:#6b778a;cursor:not-allowed;font-weight:400}
+.grund{font-size:12px;color:var(--muted)}
+.frei-banner{background:#f0faf4;border-bottom:2px solid #bfe3cd;color:#1d6b42;padding:6px 16px;font-weight:600}
+.koerper{flex:1;display:flex;min-height:0}
+.flaeche{flex:1;display:flex;flex-direction:column;min-width:0}
+.werkzeuge{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;border-bottom:1px solid var(--rand);background:#fbfdff}
+.ansicht-werkzeuge{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:7px 12px;border-bottom:1px solid var(--rand);background:#f7fafd}
+.ansicht-werkzeuge span{font-size:12px;color:var(--muted)}
+.react-flow{flex:1;background:#fff}
+.react-flow__edge-text{font-size:11px;fill:var(--muted)}
+.knoten{position:relative;display:flex;align-items:center;justify-content:center}
+.knoten .form{position:absolute;inset:0;overflow:visible}
+.knoten-text{position:relative;font-size:13px;text-align:center;padding:0 14px;line-height:1.25}
+/* Beschriftung an Pfeilen (ja / nein …) — liegt immer auf freiem Platz (U40) */
+.kanten-text rect{fill:#fff;stroke:#c9d3e0;stroke-width:1}
+.kanten-text text{font-size:12px;fill:#132038;font-family:inherit}
+.knoten-offen{position:absolute;left:-9px;top:-9px;width:20px;height:20px;border-radius:50%;background:#e0b64a;color:var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.react-flow__handle{width:8px;height:8px;background:#9fb4d2;border:1px solid #fff;opacity:0}
+.knoten:hover .react-flow__handle,.react-flow__node.selected .react-flow__handle{opacity:1}
+.gesperrt .react-flow__handle{display:none}
+.react-flow__node-urs.selected,.react-flow__node-urs:focus{outline:none}
+aside{width:380px;max-width:45vw;border-left:1px solid var(--rand);background:#fff;overflow:auto;padding:14px 16px}
+aside h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:18px 0 6px}
+aside h2:first-child{margin-top:0}
+aside ul{margin:0;padding-left:18px}
+.titel{font-size:17px;font-weight:700}
+.titel-eingabe{width:100%;font-size:17px;font-weight:700;border:1px solid var(--rand);border-radius:6px;padding:3px 6px}
+.anforderungen{margin-top:10px}
+.karte{border:1px solid var(--rand);border-radius:10px;padding:8px 12px;margin-bottom:8px;background:#fff}
+.karte.unbeantwortet{background:#fffaf0}
+.karte.beantwortet{background:#f2fbf5}
+.u-tag{display:inline-block;background:#eef5ff;border:1px solid #cfe0f8;color:#134a94;border-radius:5px;padding:0 6px;font-size:11.5px;font-weight:800;margin-right:6px}
+.komm{border-left:3px solid #e0b64a;padding:4px 8px;margin-bottom:6px;background:#fffaf0;border-radius:0 6px 6px 0}
+.komm.erledigt{border-color:#bfe3cd;background:#f2fbf5;color:var(--muted)}
+.komm.erledigt .txt{text-decoration:line-through}
+.meta{font-size:11.5px;color:var(--muted)}
+textarea{width:100%;border:1px solid var(--rand);border-radius:8px;padding:6px 8px;min-height:54px;resize:vertical}
+input[type=text]{width:100%;border:1px solid var(--rand);border-radius:6px;padding:4px 6px;margin-top:6px}
+.zeile{display:flex;gap:6px;align-items:center;margin-top:6px}
+.hinweis{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#fff;border:2px solid var(--blau);color:var(--ink);border-radius:10px;padding:8px 14px;box-shadow:0 4px 18px #13203822;z-index:10}
+.leerseite{max-width:720px;margin:40px auto;padding:0 16px}
+.react-flow__edge.selected .react-flow__edge-path{stroke:var(--blau)!important;stroke-width:3!important}
+@media(max-width:800px){
+  .seite-eingeklappt{display:none}
+  .koerper{display:block;overflow:auto}
+  .flaeche{height:70vh;min-height:440px}
+  aside{width:100%;max-width:none;max-height:none;overflow:visible;border-left:0;border-top:1px solid var(--rand)}
+  .ansicht-werkzeuge span{width:100%}
+}
+/* Werkbank: Terminal links, URS rechts */
+.werkbank{height:100%;display:flex}
+.term-spalte{width:40%;min-width:360px;max-width:760px;display:flex;flex-direction:column;border-right:1px solid var(--rand);background:#fbfcfe}
+.urs-spalte{flex:1;min-width:0}
+.urs-spalte .leerseite{margin-top:80px}
+.term-kopf{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#fff;border-bottom:1px solid var(--rand);font-size:12px;color:var(--muted);min-height:47px}
+.term-kopf button{padding:3px 10px;font-size:12px}
+.term-pfad{font-family:ui-monospace,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.punkt{width:8px;height:8px;border-radius:50%;background:#2fa36b;flex:none}
+.punkt.aus{background:#c9b08a}
+.term-inhalt{flex:1;min-height:0;padding:8px 4px 8px 10px}
+.term-inhalt .xterm{height:100%}
+.ordner{display:flex;flex-direction:column;border:1px solid var(--rand);background:#fff;border-radius:10px;padding:10px 14px;margin-bottom:8px;color:var(--ink);text-decoration:none}
+.ordner:hover{border-color:var(--blau)}
+.ordner span{font-size:12px;color:var(--muted)}
+.neu-ordner{margin-top:16px}
+.neu-ordner input[type=text]{margin-top:0}
+.fehler{color:#b42318}
+/* Punkt-Chat */
+.msg{border-radius:10px;padding:6px 10px;margin-bottom:8px;max-width:92%;white-space:pre-wrap}
+.msg.ich{background:#eef5ff;border:1px solid #cfe0f8;margin-left:auto}
+.msg.claude{background:#f7fafd;border:1px solid var(--rand)}
+.msg.fehler{background:#fdf1f0;border-color:#f3c2bd}
+.msg .wer{font-size:11px;font-weight:700;color:var(--muted)}
+.vorschlag{border:2px solid #e0b64a;background:#fffaf0;border-radius:10px;padding:8px 10px;margin:0 0 10px}
+.vorschlag b{display:block;font-size:12px;color:#8a5b12;margin-bottom:2px}
+.vorschlag.ok{border-color:#bfe3cd;background:#f2fbf5}
+.vorschlag.nein{border-color:#dbe2ec;background:#f3f5f8;color:var(--muted)}
+.denkt{color:var(--muted);font-style:italic;margin-bottom:8px}
+@media(max-width:800px){.werkbank{flex-direction:column}.term-spalte{width:100%;max-width:none;height:50vh}}
+/* Block-Gespräch: Hinweis, Beispiele, Vorschau-Fenster */
+.flaeche{position:relative}
+.links-hinweis{font-size:11.5px;color:var(--blau);font-weight:600;margin-top:2px}
+.knoten-links{position:absolute;right:-9px;top:-9px;width:20px;height:20px;border-radius:50%;background:var(--blau);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.beispiele{margin:4px 0 10px}
+/* Screenshots im Block-Feld (U39) */
+.bild-anhaenge{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.bild-anhang{position:relative;display:inline-block}
+.bild-anhang img{height:56px;max-width:120px;object-fit:cover;border:1px solid var(--rand);border-radius:6px;display:block}
+.bild-anhang button{position:absolute;top:-6px;right:-6px;width:18px;height:18px;padding:0;border-radius:50%;font-size:12px;line-height:16px}
+.beispiel-knopf{display:block;width:100%;text-align:left;margin-bottom:6px;color:var(--blau);background:#f7fafd}
+.vorschau{position:absolute;inset:12px;z-index:6;background:#fff;border:2px solid var(--blau);border-radius:12px;box-shadow:0 10px 40px #13203833;display:flex;flex-direction:column}
+.vorschau-kopf{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--rand)}
+.vorschau-kopf b{flex:1}
+.vorschau iframe{flex:1;border:0;border-radius:0 0 10px 10px;background:#fff}
+/* Shell wie Warp: Kopf, linke Leiste, Fenster oder Kacheln */
+.shell{height:100%;display:flex;flex-direction:column}
+.shell-kopf{display:flex;align-items:center;gap:12px;padding:8px 14px;background:#fff;border-bottom:1px solid var(--rand)}
+.shell-kopf b{font-size:15px}
+.umschalter{display:flex;border:1px solid var(--rand);border-radius:9px;overflow:hidden}
+.umschalter button{border:0;border-radius:0;padding:5px 14px}
+.umschalter button.an{background:#eef5ff;color:#134a94;font-weight:700}
+.shell-haupt{flex:1;display:flex;min-height:0}
+.leiste{width:250px;flex:none;background:#f3f6fa;border-right:1px solid var(--rand);display:flex;flex-direction:column}
+.leiste-suche{display:flex;gap:6px;padding:10px}
+.leiste-suche input[type=text]{flex:1;margin:0;border-radius:8px;padding:5px 8px;background:#fff}
+.liste{flex:1;overflow:auto;padding:0 8px 8px}
+.eintrag{box-sizing:border-box;cursor:pointer;display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;padding:9px 10px;border:1px solid transparent;border-radius:9px;background:transparent;margin-bottom:2px}
+.eintrag:hover{background:#e9eff7;border-color:transparent}
+.eintrag.aktiv{background:#fff;border-color:var(--rand);box-shadow:0 1px 3px #13203812}
+.eintrag .punkt{margin-top:6px}
+.eintrag-text{display:flex;flex-direction:column;min-width:0;flex:1}
+.eintrag .name{font-weight:600;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.name-eingabe{width:100%;font:inherit;font-weight:600;border:1px solid var(--blau);border-radius:5px;padding:0 4px;background:#fff;color:var(--ink)}
+.im-fenster{color:var(--blau);font-weight:700}
+.offen-marke{background:#e0b64a;color:var(--ink);font-size:11px;font-weight:700;border-radius:10px;padding:0 7px;align-self:center}
+.leer-liste{padding:10px}
+.shell-rechts{flex:1;display:flex;min-width:0}
+.fenster{flex:1;display:flex;gap:8px;padding:8px;min-width:0}
+.spalte{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pane{flex:1;display:flex;flex-direction:column;background:#fff;border:1px solid var(--rand);border-radius:10px;min-height:0;overflow:hidden}
+.pane.aktiv{border:2px solid var(--blau)}
+.pane-kopf{position:relative;display:flex;align-items:center;gap:6px;padding:6px 10px;border-bottom:1px solid var(--rand);font-size:13px}
+.pane-kopf b{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pane-kopf button{padding:2px 8px;font-size:12px}
+.menue{position:absolute;right:8px;top:36px;z-index:20;background:#fff;border:1px solid var(--rand);border-radius:10px;box-shadow:0 8px 28px #13203826;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:220px}
+.menue button{text-align:left}
+.menue .neu{color:var(--blau)}
+.pane-inhalt{flex:1;min-height:0}
+.kacheln{flex:1;overflow:auto;padding:18px}
+.raster{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.kachel{display:flex;flex-direction:column;gap:8px;text-align:left;background:#fff;border:1px solid var(--rand);border-radius:12px;padding:12px}
+.kachel:hover{border-color:var(--blau);box-shadow:0 4px 16px #13203814}
+.kachel-kopf{display:flex;align-items:center;gap:8px}
+.kachel-kopf b{flex:1}
+.mini{display:block;height:120px;background:#f7fafd;border:1px solid var(--rand);border-radius:8px}
+.zahlen{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.zahlen b{color:var(--ink)}
+.neu-kachel{border:2px dashed var(--rand);align-items:center;justify-content:center;color:var(--muted);min-height:200px}
+.einrichtung ol{padding-left:20px}
+.einrichtung li{margin-bottom:14px}
+.einrichtung li.erledigt{color:#1d6b42}
+.einrichtung code{background:#eef1f5;border-radius:5px;padding:2px 6px;font-size:13px}
+/* Kompakt (Fenster in der Shell): eigene Höhe, Seitenleiste als Einblendung bei schmalem Platz */
+.werkbank.kompakt{height:100%}
+.werkbank.kompakt .term-spalte{min-width:260px;width:38%}
+.urs-spalte{container-type:inline-size;position:relative}
+@container (max-width: 720px){
+  /* Seitenfeld bleibt hier bewusst normal: ein-/ausblenden nur über den Knopf „Seitenfeld“, Breite per Ziehen (U15, U22). */
+  .werkzeuge,.ansicht-werkzeuge{padding:5px 8px}
+  .ansicht-werkzeuge span{display:none}
+  header{gap:8px;padding:8px 10px}
+  header h1{font-size:15px}
+}
+/* Status-Punkt in Leiste, Kacheln, Fensterkopf: grau = Claude aus, grün = Claude läuft */
+.leiste .punkt,.kachel .punkt,.pane-kopf .punkt{background:#c9b08a}
+.leiste .punkt.laeuft,.kachel .punkt.laeuft,.pane-kopf .punkt.laeuft{background:#2fa36b}
+/* Spalten ein-/ausblenden und Breiten ziehen (U14, U15, U21, U22) */
+.leiste{flex:none}
+.leiste-kopf{display:flex;align-items:center;gap:6px;padding:10px 10px 0}
+.leiste-kopf span{flex:1;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.einklappen{padding:1px 9px;font-size:15px;font-weight:700;line-height:1.4}
+.leiste.eingeklappt{width:38px;align-items:center;padding-top:10px}
+.griff{width:7px;flex:none;cursor:col-resize;position:relative;touch-action:none;z-index:3}
+.griff::after{content:"";position:absolute;top:0;bottom:0;left:3px;width:1px;background:var(--rand)}
+.griff:hover::after,.griff.zieht::after{left:2px;width:3px;background:var(--blau)}
+body.zieht-breite{cursor:col-resize;user-select:none}
+body.zieht-breite iframe,body.zieht-breite .xterm{pointer-events:none}
+.sp-flex{flex:1}
+.ansicht-werkzeuge button.an,.term-kopf button.an{background:#eef5ff;border-color:#9fb4d2;color:#134a94;font-weight:700}
+.term-spalte{flex:none;max-width:none;min-width:0}
+.werkbank.kompakt .term-spalte{min-width:0;width:auto}
+aside{flex:none;max-width:none}
+.phase{border-radius:7px;padding:1px 9px;font-size:12px;font-weight:800;border:1px solid;white-space:nowrap}
+.phase.planen{background:#fff6e8;border-color:#e0b64a;color:#8a5b12}
+.phase.bauen{background:#e8f7ef;border-color:#087b52;color:#0b5a3c}
+/* Aus der Übersicht entfernen (U26): × erscheint beim Drüberfahren */
+.entfernen{visibility:hidden;align-self:center;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--muted);flex:none}
+.entfernen:hover{background:#fdf1f0;color:#b42318}
+.eintrag:hover .entfernen,.kachel:hover .entfernen{visibility:visible}
+/* Chats wie Tabs in Warp (U27) */
+.hintergrund{position:absolute;width:800px;height:400px;left:-10000px;top:0;overflow:hidden;visibility:hidden}
+/* Seitenfeld einklappen wie die Chat-Liste: » oben rechts im Feld, eingeklappt ein Streifen mit « (U15) */
+.seite-zu{position:sticky;top:0;float:right;margin:-4px -6px 0 8px;z-index:2}
+.seite-eingeklappt{width:38px;flex:none;border-left:1px solid var(--rand);background:#fff;display:flex;justify-content:center;padding-top:10px}
+/* Marke „neu“: noch nicht freigegeben (U31). Dunkle Schrift auf hellem Grün. */
+.marke-neu{display:inline-block;background:#e3f6ea;border:1px solid #9ad3ae;color:#145c2e;border-radius:5px;padding:0 6px;font-size:11px;font-weight:800;margin-left:6px;vertical-align:1px}
+.knoten .marke-neu{position:absolute;right:-8px;bottom:-10px;margin:0}
+.karte.ist-neu{border-color:#9ad3ae;background:#f6fcf8}
+/* Versionsnummer neben dem App-Namen (U46) */
+.app-version{font-size:11px;color:var(--muted);margin-left:6px;margin-right:4px;font-variant-numeric:tabular-nums}
+/* SMART-Ergebnis je Anforderung (U54) */
+.karte .smart{margin-top:4px;font-size:11.5px;color:#4a5a74}
+.karte .smart.ok{color:#0b6b3a}
+.karte .smart.verfehlt{color:#b42318;font-weight:700}
+.karte .smart.ungeprueft{color:#8a5b12}
+.karte .smart-grund{font-weight:400;color:#4a5a74}
+/* Sprache der Oberfläche (U58) */
+.shell-kopf .sprache{font:inherit;font-size:12.5px;padding:3px 6px;border:1px solid var(--rand);border-radius:6px;background:#fff;color:#132038}

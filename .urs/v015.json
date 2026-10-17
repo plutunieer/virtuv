@@ -1,0 +1,486 @@
+{
+  "version": 15,
+  "erstellt": "2026-10-10T16:56:31.464Z",
+  "inhalt": {
+    "name": "URS-App",
+    "zweck": "Terminal wie Warp: jedes Vorhaben erst als Ablauf planen, freigeben, dann im selben Terminal bauen.",
+    "anforderungen": [
+      {
+        "id": "U1",
+        "text": "Nach einer App-Idee in Claude Code steht der Ablauf in 10 Sekunden im Browser.",
+        "prio": "muss"
+      },
+      {
+        "id": "U2",
+        "text": "Eine neue Version öffnet sich im Browser von selbst.",
+        "prio": "muss"
+      },
+      {
+        "id": "U3",
+        "text": "Jeder Knoten hat höchstens 4 Wörter.",
+        "prio": "muss"
+      },
+      {
+        "id": "U4",
+        "text": "Änderungen seit der letzten Version sind farbig markiert.",
+        "prio": "muss",
+        "gestrichen": true
+      },
+      {
+        "id": "U5",
+        "text": "Kommentare an Knoten bleiben nach Neuladen erhalten.",
+        "prio": "muss"
+      },
+      {
+        "id": "U6",
+        "text": "Knoten anlegen, verschieben, löschen und Pfeile ziehen geht per Maus.",
+        "prio": "muss"
+      },
+      {
+        "id": "U7",
+        "text": "„Freigeben“ geht erst, wenn kein Kommentar und keine Frage offen ist.",
+        "prio": "muss"
+      },
+      {
+        "id": "U8",
+        "text": "Claude bekommt jeden Kommentar und jede Änderung zurück.",
+        "prio": "muss"
+      },
+      {
+        "id": "U9",
+        "text": "Eine freigegebene Version lässt sich nicht mehr ändern.",
+        "prio": "muss"
+      },
+      {
+        "id": "U10",
+        "text": "Claude bekommt die URS erst nach der Freigabe.",
+        "prio": "muss"
+      },
+      {
+        "id": "U11",
+        "text": "Je Anforderung steht nur ein Satz da, ohne Quelle und Zusatzfelder.",
+        "prio": "muss"
+      },
+      {
+        "id": "U12",
+        "text": "Ein neuer Knoten überdeckt nie einen bestehenden.",
+        "prio": "muss"
+      },
+      {
+        "id": "U13",
+        "text": "Shift+Enter springt im Terminal und im Block-Feld in eine neue Zeile, ohne abzuschicken.",
+        "prio": "muss"
+      },
+      {
+        "id": "U14",
+        "text": "Die Ordner-Spalte links lässt sich per Klick aus- und wieder einblenden.",
+        "prio": "muss"
+      },
+      {
+        "id": "U15",
+        "text": "Das ganze Seitenfeld rechts lässt sich per Klick aus- und wieder einblenden.",
+        "prio": "muss"
+      },
+      {
+        "id": "U16",
+        "text": "Vor der Freigabe baut Claude nichts, sondern plant zuerst den Ablauf.",
+        "prio": "muss"
+      },
+      {
+        "id": "U17",
+        "text": "Nach der Freigabe baut Claude im selben Terminal nur die freigegebene Version.",
+        "prio": "muss"
+      },
+      {
+        "id": "U18",
+        "text": "Ein neuer Wunsch beim Bauen wird zuerst neue Version und geht zurück ins Planen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U19",
+        "text": "Der Fensterkopf zeigt immer, ob gerade geplant oder gebaut wird.",
+        "prio": "muss"
+      },
+      {
+        "id": "U20",
+        "text": "Ausgeblendete Spalten bleiben auch nach einem Neustart ausgeblendet.",
+        "prio": "muss"
+      },
+      {
+        "id": "U21",
+        "text": "Das Terminal links lässt sich per Klick aus- und wieder einblenden.",
+        "prio": "muss"
+      },
+      {
+        "id": "U22",
+        "text": "Die Breiten von Leiste, Terminal, Ablauf und Seitenfeld lassen sich mit der Maus ziehen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U23",
+        "text": "Eingestellte Breiten bleiben auch nach einem Neustart erhalten.",
+        "prio": "muss"
+      },
+      {
+        "id": "U24",
+        "text": "Claude darf eingearbeitete Kommentare selbst als erledigt abhaken.",
+        "prio": "muss"
+      },
+      {
+        "id": "U25",
+        "text": "Claude im Terminal arbeitet wie normales Claude Code mit den eigenen Einstellungen und Werkzeugen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U26",
+        "text": "Ein Projekt lässt sich aus der Übersicht entfernen, ohne dass Ordner oder Dateien gelöscht werden.",
+        "prio": "muss"
+      },
+      {
+        "id": "U27",
+        "text": "Wie in Warp öffnet Strg+T einen weiteren Chat; alle Chats stehen links und laufen weiter.",
+        "prio": "muss"
+      },
+      {
+        "id": "U28",
+        "text": "Das Seitenfeld hat oben einen Knopf zum Einklappen und eingeklappt einen Streifen zum Aufklappen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U29",
+        "text": "Ein Klick auf einen Block öffnet das Seitenfeld, auch wenn es eingeklappt war.",
+        "prio": "muss"
+      },
+      {
+        "id": "U30",
+        "text": "Das Block-Feld zeigt keine Hinweistexte, nur Eingabe und Knopf.",
+        "prio": "muss"
+      },
+      {
+        "id": "U31",
+        "text": "Alles, was noch nicht freigegeben ist, trägt in der URS die Marke „neu“.",
+        "prio": "muss"
+      },
+      {
+        "id": "U32",
+        "text": "Ein Chat heißt wie sein Projekt, ohne Zusatzzeile darunter.",
+        "prio": "muss"
+      },
+      {
+        "id": "U33",
+        "text": "Ein Doppelklick auf den Chatnamen benennt ihn um; der Name bleibt nach einem Neustart.",
+        "prio": "muss"
+      },
+      {
+        "id": "U34",
+        "text": "Ein neuer Chat (Strg+T oder +) fragt immer nach dem Ordner und übernimmt nie das Projekt des aktiven Chats.",
+        "prio": "muss"
+      },
+      {
+        "id": "U35",
+        "text": "Grundfunktionen wie Chats, Tabs und Tastenkürzel verhalten sich wie in Warp.",
+        "prio": "muss"
+      },
+      {
+        "id": "U36",
+        "text": "Jeder vorhandene Ordner lässt sich öffnen, auch mit Leerzeichen am Anfang oder Ende des Namens.",
+        "prio": "muss"
+      },
+      {
+        "id": "U37",
+        "text": "Claude kann in einem Chat auch die URS eines Unterordners planen und bauen, ohne neuen Chat.",
+        "prio": "muss"
+      },
+      {
+        "id": "U38",
+        "text": "Claude sieht nach jedem eigenen Entwurf das Fließbild als Bild, ohne Bildschirmfreigabe, so wie der Nutzer es sieht.",
+        "prio": "muss"
+      },
+      {
+        "id": "U39",
+        "text": "Screenshots lassen sich per Cmd+V oder Hineinziehen in den Chat legen; Claude sieht sie als Bild.",
+        "prio": "muss"
+      },
+      {
+        "id": "U40",
+        "text": "Kein Knoten, Pfeil oder Beschriftung überdeckt einen anderen, auch nach Überarbeitungen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U41",
+        "text": "Das Fließbild ordnet sich selbst von oben nach unten mit möglichst wenig Kreuzungen und Umwegen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U42",
+        "text": "U-Nummern stehen nicht neben den Knoten, sondern erst nach Klick im Seitenfeld.",
+        "prio": "muss"
+      },
+      {
+        "id": "U43",
+        "text": "Findet Claude im Bild eine Überlappung, bessert es nach, bevor der Nutzer die Version sieht.",
+        "prio": "muss"
+      }
+    ],
+    "knoten": [
+      {
+        "id": "idee",
+        "typ": "start",
+        "text": "Idee im Terminal",
+        "anforderungen": [
+          "U1",
+          "U13",
+          "U27",
+          "U32",
+          "U33",
+          "U35",
+          "U39"
+        ]
+      },
+      {
+        "id": "ordner",
+        "typ": "nutzer",
+        "text": "Ordner wählen",
+        "anforderungen": [
+          "U34",
+          "U36",
+          "U37"
+        ]
+      },
+      {
+        "id": "zeichnen",
+        "typ": "schritt",
+        "text": "Claude plant Ablauf",
+        "anforderungen": [
+          "U1",
+          "U2",
+          "U16",
+          "U19",
+          "U25",
+          "U41"
+        ]
+      },
+      {
+        "id": "selbstsicht",
+        "typ": "schritt",
+        "text": "Claude prüft Fließbild-Bild",
+        "anforderungen": [
+          "U38",
+          "U40"
+        ]
+      },
+      {
+        "id": "sauber",
+        "typ": "entscheidung",
+        "text": "Bild übersichtlich?",
+        "anforderungen": [
+          "U40",
+          "U43"
+        ]
+      },
+      {
+        "id": "pruefen",
+        "typ": "nutzer",
+        "text": "Ablauf prüfen",
+        "anforderungen": [
+          "U3",
+          "U11",
+          "U31",
+          "U42"
+        ]
+      },
+      {
+        "id": "ansicht",
+        "typ": "nutzer",
+        "text": "Spalten ein-/ausblenden",
+        "anforderungen": [
+          "U14",
+          "U15",
+          "U20",
+          "U21",
+          "U22",
+          "U23",
+          "U26",
+          "U28"
+        ]
+      },
+      {
+        "id": "kommentieren",
+        "typ": "nutzer",
+        "text": "Kommentieren & ändern",
+        "anforderungen": [
+          "U5",
+          "U6",
+          "U12",
+          "U13",
+          "U29",
+          "U30",
+          "U39"
+        ]
+      },
+      {
+        "id": "erledigt",
+        "typ": "entscheidung",
+        "text": "Alles erledigt?",
+        "anforderungen": [
+          "U7"
+        ]
+      },
+      {
+        "id": "ueberarbeiten",
+        "typ": "schritt",
+        "text": "Claude überarbeitet",
+        "anforderungen": [
+          "U8",
+          "U24"
+        ]
+      },
+      {
+        "id": "freigeben",
+        "typ": "nutzer",
+        "text": "Freigeben",
+        "anforderungen": [
+          "U7",
+          "U31"
+        ]
+      },
+      {
+        "id": "eingefroren",
+        "typ": "speicher",
+        "text": "Version eingefroren",
+        "anforderungen": [
+          "U9"
+        ]
+      },
+      {
+        "id": "bauen",
+        "typ": "schritt",
+        "text": "Claude baut im Terminal",
+        "anforderungen": [
+          "U10",
+          "U17",
+          "U19"
+        ]
+      },
+      {
+        "id": "wunsch",
+        "typ": "entscheidung",
+        "text": "Neuer Wunsch?",
+        "anforderungen": [
+          "U18"
+        ]
+      },
+      {
+        "id": "fertig",
+        "typ": "ende",
+        "text": "App fertig",
+        "anforderungen": [
+          "U17"
+        ]
+      }
+    ],
+    "kanten": [
+      {
+        "von": "idee",
+        "nach": "ordner"
+      },
+      {
+        "von": "ordner",
+        "nach": "zeichnen"
+      },
+      {
+        "von": "zeichnen",
+        "nach": "selbstsicht"
+      },
+      {
+        "von": "selbstsicht",
+        "nach": "sauber"
+      },
+      {
+        "von": "sauber",
+        "nach": "pruefen",
+        "bedingung": "ja"
+      },
+      {
+        "von": "sauber",
+        "nach": "zeichnen",
+        "bedingung": "nein"
+      },
+      {
+        "von": "pruefen",
+        "nach": "ansicht"
+      },
+      {
+        "von": "ansicht",
+        "nach": "pruefen"
+      },
+      {
+        "von": "pruefen",
+        "nach": "kommentieren"
+      },
+      {
+        "von": "kommentieren",
+        "nach": "erledigt"
+      },
+      {
+        "von": "erledigt",
+        "nach": "freigeben",
+        "bedingung": "ja"
+      },
+      {
+        "von": "erledigt",
+        "nach": "ueberarbeiten",
+        "bedingung": "nein"
+      },
+      {
+        "von": "ueberarbeiten",
+        "nach": "zeichnen"
+      },
+      {
+        "von": "freigeben",
+        "nach": "eingefroren"
+      },
+      {
+        "von": "eingefroren",
+        "nach": "bauen"
+      },
+      {
+        "von": "bauen",
+        "nach": "wunsch"
+      },
+      {
+        "von": "wunsch",
+        "nach": "zeichnen",
+        "bedingung": "ja"
+      },
+      {
+        "von": "wunsch",
+        "nach": "fertig",
+        "bedingung": "nein"
+      }
+    ],
+    "fragen": [
+      {
+        "id": "F1",
+        "text": "Sollen Screenshots auch ins Block-Feld rechts eingefügt werden können, oder nur ins Terminal?"
+      },
+      {
+        "id": "F3",
+        "text": "Von Hand verschobene Knoten: sollen sie an ihrem Platz bleiben, oder ordnet sich alles bei jeder Version neu?"
+      }
+    ],
+    "sicherheit": [
+      "Freigeben nur per Knopf im Browser, nicht über Claude-Werkzeuge.",
+      "Nur auf diesem Mac erreichbar.",
+      "Fremde Webseiten können die App weder einbetten noch fernsteuern.",
+      "Das Fließbild-Bild zeigt nur das Fließbild, nie den übrigen Bildschirm."
+    ],
+    "nichtEnthalten": [
+      "KI in der App selbst",
+      "Veröffentlichung auf npm",
+      "Signierung mit Apple-Konto, Windows",
+      "Eigene Änderungsliste oder Versionsvergleich",
+      "Steuerung des Bildschirms oder anderer Apps"
+    ]
+  }
+}

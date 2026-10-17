@@ -1,0 +1,8 @@
+node_modules/
+web/dist/
+*.tmp
+electron-dist/
+release/
+plugin/dist/
+plugin/web/
+.DS_Store

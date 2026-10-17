@@ -1,0 +1,26 @@
+[
+  {
+    "nr": 1,
+    "titel": "Icon-Entwürfe A, B, C",
+    "knoten": "plugin",
+    "zeit": "2026-10-13T05:49:40.425Z"
+  },
+  {
+    "nr": 2,
+    "titel": "Icon B – verfeinert",
+    "knoten": "plugin",
+    "zeit": "2026-10-13T05:51:18.130Z"
+  },
+  {
+    "nr": 3,
+    "titel": "Icon B – verfeinert (neu)",
+    "knoten": "plugin",
+    "zeit": "2026-10-13T05:53:05.927Z"
+  },
+  {
+    "nr": 4,
+    "titel": "Icon-Ideen D, E, F",
+    "knoten": "plugin",
+    "zeit": "2026-10-13T05:55:16.019Z"
+  }
+]

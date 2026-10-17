@@ -1,0 +1,191 @@
+{
+  "version": 6,
+  "erstellt": "2026-10-10T16:36:21.523Z",
+  "inhalt": {
+    "name": "App-Webseite (Entwurf 2)",
+    "zweck": "Vibe-Coder verstehen in 30 Sekunden, welches Problem die App löst und wie.",
+    "zielgruppe": "Nicht-Programmierer, die mit KI im Terminal Apps bauen (Vibe-Coder), englischsprachig",
+    "anforderungen": [
+      {
+        "id": "U1",
+        "text": "Die Seite ist eine einzelne Startseite mit wenigen, klar getrennten Abschnitten.",
+        "prio": "muss"
+      },
+      {
+        "id": "U2",
+        "text": "Oben steht: „Plan first. Then let AI build.“ plus ein Satz, wie das geht.",
+        "prio": "muss"
+      },
+      {
+        "id": "U3",
+        "text": "Ein Abschnitt zeigt das Problem: KI baut los, bevor klar ist, was gebaut werden soll.",
+        "prio": "muss"
+      },
+      {
+        "id": "U4",
+        "text": "Ein Abschnitt zeigt die Lösung: erst Ablauf als Diagramm, dann Freigabe, dann bauen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U5",
+        "text": "Ein Abschnitt erklärt in drei Schritten, wie man die App benutzt.",
+        "prio": "muss"
+      },
+      {
+        "id": "U6",
+        "text": "Ein nachgezeichnetes Bild der App zeigt Terminal links und Diagramm rechts.",
+        "prio": "muss"
+      },
+      {
+        "id": "U7",
+        "text": "Jeder Abschnitt hat höchstens drei kurze Sätze, ohne Fachbegriffe ohne Erklärung.",
+        "prio": "muss"
+      },
+      {
+        "id": "U8",
+        "text": "Oben auf der Seite lädt ein Knopf die Mac-App (Apple-Chip) herunter.",
+        "prio": "muss"
+      },
+      {
+        "id": "U9",
+        "text": "Aussehen wie Vorlage Aoutive: fast weiß, schwarz, grau, große Überschriften, feine Linien, Strichzeichnungen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U10",
+        "text": "Die Seite funktioniert auf dem Handy ohne seitliches Scrollen.",
+        "prio": "muss"
+      },
+      {
+        "id": "U11",
+        "text": "Ein kurzer Fragen-Abschnitt beantwortet die drei häufigsten Einwände.",
+        "prio": "soll"
+      },
+      {
+        "id": "U12",
+        "text": "Alle Texte der Seite sind auf Englisch.",
+        "prio": "muss"
+      },
+      {
+        "id": "U13",
+        "text": "Der App-Name ist an einer Stelle leicht austauschbar, derzeit „Virtuv“.",
+        "prio": "muss"
+      },
+      {
+        "id": "U14",
+        "text": "Die Seite ist öffentlich unter virtuv.dev und www.virtuv.dev erreichbar.",
+        "prio": "muss"
+      },
+      {
+        "id": "U15",
+        "text": "Unter dem Knopf steht in einem Satz, wie man die App trotz Mac-Warnung öffnet.",
+        "prio": "muss"
+      }
+    ],
+    "knoten": [
+      {
+        "id": "start",
+        "typ": "start",
+        "text": "Besucher öffnet virtuv.dev",
+        "anforderungen": [
+          "U1",
+          "U12",
+          "U14"
+        ]
+      },
+      {
+        "id": "hero",
+        "typ": "schritt",
+        "text": "Plan first, then build",
+        "anforderungen": [
+          "U2",
+          "U6",
+          "U9",
+          "U13"
+        ]
+      },
+      {
+        "id": "aktion",
+        "typ": "nutzer",
+        "text": "Mac-App herunterladen",
+        "anforderungen": [
+          "U8",
+          "U15"
+        ]
+      },
+      {
+        "id": "problem",
+        "typ": "schritt",
+        "text": "Problem: KI rät drauflos",
+        "anforderungen": [
+          "U3",
+          "U7"
+        ]
+      },
+      {
+        "id": "loesung",
+        "typ": "schritt",
+        "text": "Lösung: erst Ablauf planen",
+        "anforderungen": [
+          "U4",
+          "U6"
+        ]
+      },
+      {
+        "id": "schritte",
+        "typ": "schritt",
+        "text": "So geht's: drei Schritte",
+        "anforderungen": [
+          "U5"
+        ]
+      },
+      {
+        "id": "faq",
+        "typ": "schritt",
+        "text": "Häufige Fragen",
+        "anforderungen": [
+          "U11"
+        ]
+      }
+    ],
+    "kanten": [
+      {
+        "von": "start",
+        "nach": "hero"
+      },
+      {
+        "von": "hero",
+        "nach": "aktion",
+        "bedingung": "Knopf oben"
+      },
+      {
+        "von": "hero",
+        "nach": "problem"
+      },
+      {
+        "von": "problem",
+        "nach": "loesung"
+      },
+      {
+        "von": "loesung",
+        "nach": "schritte"
+      },
+      {
+        "von": "schritte",
+        "nach": "faq"
+      }
+    ],
+    "fragen": [],
+    "sicherheit": [
+      "Keine Besucherdaten speichern oder versenden"
+    ],
+    "nichtEnthalten": [
+      "Unterseiten (Preise, Blog, Über uns, Rechtliches)",
+      "Kopieren von Bildern, Texten oder Code der Framer-Vorlage",
+      "Deutsche Fassung",
+      "Preisangaben",
+      "Fassung für Windows, Linux oder ältere Intel-Macs",
+      "Umbenennen der App selbst (eigene URS)"
+    ]
+  }
+}

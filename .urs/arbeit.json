@@ -1,0 +1,562 @@
+{
+  "version": 40,
+  "knoten": [
+    {
+      "id": "idee",
+      "typ": "start",
+      "text": "Idea in terminal",
+      "anforderungen": [
+        "U13",
+        "U25",
+        "U27",
+        "U32",
+        "U33",
+        "U35",
+        "U39",
+        "U46",
+        "U57",
+        "U60",
+        "U77",
+        "U80",
+        "U81",
+        "U86"
+      ]
+    },
+    {
+      "id": "plugin",
+      "typ": "start",
+      "text": "Install plugin",
+      "anforderungen": [
+        "U70",
+        "U71",
+        "U74",
+        "U75",
+        "U76",
+        "U82",
+        "U83",
+        "U84",
+        "U85"
+      ]
+    },
+    {
+      "id": "planbefehl",
+      "typ": "nutzer",
+      "text": "Run plan command",
+      "anforderungen": [
+        "U72"
+      ]
+    },
+    {
+      "id": "zeichnen",
+      "typ": "schritt",
+      "text": "Claude plans flow",
+      "anforderungen": [
+        "U2",
+        "U3",
+        "U16",
+        "U19",
+        "U41",
+        "U48",
+        "U52",
+        "U61"
+      ]
+    },
+    {
+      "id": "selbstsicht",
+      "typ": "schritt",
+      "text": "Claude checks image",
+      "anforderungen": [
+        "U38",
+        "U40"
+      ]
+    },
+    {
+      "id": "sauber",
+      "typ": "entscheidung",
+      "text": "Image clean?",
+      "anforderungen": [
+        "U56"
+      ]
+    },
+    {
+      "id": "smart",
+      "typ": "schritt",
+      "text": "Independent SMART check",
+      "anforderungen": [
+        "U50"
+      ]
+    },
+    {
+      "id": "smartok",
+      "typ": "entscheidung",
+      "text": "SMART met?",
+      "anforderungen": [
+        "U51"
+      ]
+    },
+    {
+      "id": "pruefen",
+      "typ": "nutzer",
+      "text": "Review flow",
+      "anforderungen": [
+        "U31",
+        "U42",
+        "U45",
+        "U54",
+        "U73"
+      ]
+    },
+    {
+      "id": "ansicht",
+      "typ": "nutzer",
+      "text": "Set view & language",
+      "anforderungen": [
+        "U14",
+        "U15",
+        "U20",
+        "U21",
+        "U22",
+        "U23",
+        "U28",
+        "U58"
+      ]
+    },
+    {
+      "id": "kommentieren",
+      "typ": "nutzer",
+      "text": "Comment & edit",
+      "anforderungen": [
+        "U5",
+        "U6",
+        "U29",
+        "U30",
+        "U44"
+      ]
+    },
+    {
+      "id": "erledigt",
+      "typ": "entscheidung",
+      "text": "All resolved?",
+      "anforderungen": [
+        "U7",
+        "U55"
+      ]
+    },
+    {
+      "id": "ueberarbeiten",
+      "typ": "schritt",
+      "text": "Claude revises",
+      "anforderungen": [
+        "U8",
+        "U24"
+      ]
+    },
+    {
+      "id": "freigeben",
+      "typ": "nutzer",
+      "text": "Approve",
+      "anforderungen": [
+        "U53"
+      ]
+    },
+    {
+      "id": "eingefroren",
+      "typ": "speicher",
+      "text": "Version frozen",
+      "anforderungen": [
+        "U9"
+      ]
+    },
+    {
+      "id": "hatordner",
+      "typ": "entscheidung",
+      "text": "Folder chosen?",
+      "anforderungen": [
+        "U78"
+      ]
+    },
+    {
+      "id": "ordner",
+      "typ": "nutzer",
+      "text": "Choose folder",
+      "anforderungen": [
+        "U26",
+        "U36",
+        "U37",
+        "U79"
+      ]
+    },
+    {
+      "id": "bauen",
+      "typ": "schritt",
+      "text": "Claude codes in terminal",
+      "anforderungen": [
+        "U10",
+        "U17"
+      ]
+    },
+    {
+      "id": "review",
+      "typ": "schritt",
+      "text": "Independent code review",
+      "anforderungen": [
+        "U62"
+      ]
+    },
+    {
+      "id": "reviewok",
+      "typ": "entscheidung",
+      "text": "Findings fixed?",
+      "anforderungen": [
+        "U63"
+      ]
+    },
+    {
+      "id": "test",
+      "typ": "schritt",
+      "text": "Claude tests",
+      "anforderungen": [
+        "U64",
+        "U67"
+      ]
+    },
+    {
+      "id": "testok",
+      "typ": "entscheidung",
+      "text": "Test passed?",
+      "anforderungen": [
+        "U65"
+      ]
+    },
+    {
+      "id": "commit",
+      "typ": "speicher",
+      "text": "Commit",
+      "anforderungen": [
+        "U66",
+        "U68",
+        "U69"
+      ]
+    },
+    {
+      "id": "wunsch",
+      "typ": "entscheidung",
+      "text": "New wish?",
+      "anforderungen": [
+        "U18"
+      ]
+    },
+    {
+      "id": "fertig",
+      "typ": "ende",
+      "text": "App done",
+      "anforderungen": [
+        "U47"
+      ]
+    },
+    {
+      "id": "geheim",
+      "typ": "schritt",
+      "text": "Claude scans for secrets",
+      "anforderungen": [
+        "U112",
+        "U113"
+      ]
+    },
+    {
+      "id": "oeffentlich",
+      "typ": "schritt",
+      "text": "Claude publishes source",
+      "anforderungen": [
+        "U110",
+        "U111",
+        "U114",
+        "U115"
+      ]
+    },
+    {
+      "id": "knopf",
+      "typ": "schritt",
+      "text": "Claude adds GitHub button",
+      "anforderungen": [
+        "U116"
+      ]
+    }
+  ],
+  "kanten": [
+    {
+      "von": "idee",
+      "nach": "zeichnen"
+    },
+    {
+      "von": "plugin",
+      "nach": "planbefehl"
+    },
+    {
+      "von": "planbefehl",
+      "nach": "zeichnen"
+    },
+    {
+      "von": "zeichnen",
+      "nach": "selbstsicht"
+    },
+    {
+      "von": "selbstsicht",
+      "nach": "sauber"
+    },
+    {
+      "von": "sauber",
+      "nach": "smart",
+      "bedingung": "yes"
+    },
+    {
+      "von": "sauber",
+      "nach": "zeichnen",
+      "bedingung": "no"
+    },
+    {
+      "von": "smart",
+      "nach": "smartok"
+    },
+    {
+      "von": "smartok",
+      "nach": "pruefen",
+      "bedingung": "yes"
+    },
+    {
+      "von": "smartok",
+      "nach": "zeichnen",
+      "bedingung": "no"
+    },
+    {
+      "von": "pruefen",
+      "nach": "ansicht"
+    },
+    {
+      "von": "ansicht",
+      "nach": "pruefen"
+    },
+    {
+      "von": "pruefen",
+      "nach": "kommentieren"
+    },
+    {
+      "von": "kommentieren",
+      "nach": "erledigt"
+    },
+    {
+      "von": "erledigt",
+      "nach": "freigeben",
+      "bedingung": "yes"
+    },
+    {
+      "von": "erledigt",
+      "nach": "ueberarbeiten",
+      "bedingung": "no"
+    },
+    {
+      "von": "ueberarbeiten",
+      "nach": "zeichnen"
+    },
+    {
+      "von": "freigeben",
+      "nach": "eingefroren"
+    },
+    {
+      "von": "eingefroren",
+      "nach": "hatordner"
+    },
+    {
+      "von": "hatordner",
+      "nach": "bauen",
+      "bedingung": "yes"
+    },
+    {
+      "von": "hatordner",
+      "nach": "ordner",
+      "bedingung": "no"
+    },
+    {
+      "von": "ordner",
+      "nach": "bauen"
+    },
+    {
+      "von": "bauen",
+      "nach": "review"
+    },
+    {
+      "von": "review",
+      "nach": "reviewok"
+    },
+    {
+      "von": "reviewok",
+      "nach": "test",
+      "bedingung": "yes"
+    },
+    {
+      "von": "reviewok",
+      "nach": "bauen",
+      "bedingung": "no"
+    },
+    {
+      "von": "test",
+      "nach": "testok"
+    },
+    {
+      "von": "testok",
+      "nach": "commit",
+      "bedingung": "yes"
+    },
+    {
+      "von": "testok",
+      "nach": "bauen",
+      "bedingung": "no"
+    },
+    {
+      "von": "commit",
+      "nach": "wunsch"
+    },
+    {
+      "von": "wunsch",
+      "nach": "zeichnen",
+      "bedingung": "yes"
+    },
+    {
+      "von": "wunsch",
+      "nach": "geheim",
+      "bedingung": "no"
+    },
+    {
+      "von": "geheim",
+      "nach": "oeffentlich"
+    },
+    {
+      "von": "oeffentlich",
+      "nach": "knopf"
+    },
+    {
+      "von": "knopf",
+      "nach": "fertig"
+    }
+  ],
+  "positionen": {
+    "idee": {
+      "x": 100,
+      "y": 138
+    },
+    "plugin": {
+      "x": 350,
+      "y": 8
+    },
+    "planbefehl": {
+      "x": 340,
+      "y": 124
+    },
+    "zeichnen": {
+      "x": 80,
+      "y": 244
+    },
+    "selbstsicht": {
+      "x": 80,
+      "y": 374
+    },
+    "sauber": {
+      "x": 90,
+      "y": 490
+    },
+    "smart": {
+      "x": 80,
+      "y": 644
+    },
+    "smartok": {
+      "x": 90,
+      "y": 760
+    },
+    "pruefen": {
+      "x": 80,
+      "y": 914
+    },
+    "ansicht": {
+      "x": 10,
+      "y": 1034
+    },
+    "kommentieren": {
+      "x": 270,
+      "y": 1034
+    },
+    "erledigt": {
+      "x": 280,
+      "y": 1160
+    },
+    "ueberarbeiten": {
+      "x": 500,
+      "y": 1304
+    },
+    "freigeben": {
+      "x": 240,
+      "y": 1304
+    },
+    "eingefroren": {
+      "x": 245,
+      "y": 1432
+    },
+    "hatordner": {
+      "x": 250,
+      "y": 1560
+    },
+    "ordner": {
+      "x": 300,
+      "y": 1704
+    },
+    "bauen": {
+      "x": 440,
+      "y": 1824
+    },
+    "review": {
+      "x": 440,
+      "y": 1954
+    },
+    "reviewok": {
+      "x": 450,
+      "y": 2070
+    },
+    "test": {
+      "x": 440,
+      "y": 2224
+    },
+    "testok": {
+      "x": 450,
+      "y": 2340
+    },
+    "commit": {
+      "x": 445,
+      "y": 2492
+    },
+    "wunsch": {
+      "x": 450,
+      "y": 2620
+    },
+    "fertig": {
+      "x": 200,
+      "y": 2898
+    },
+    "geheim": {
+      "x": 440,
+      "y": 2774
+    },
+    "oeffentlich": {
+      "x": 440,
+      "y": 2894
+    },
+    "knopf": {
+      "x": 440,
+      "y": 3014
+    }
+  },
+  "fest": [],
+  "kommentare": [],
+  "antworten": {
+    "F9": "ok",
+    "F10": "yes"
+  }
+}

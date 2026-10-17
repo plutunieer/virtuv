@@ -1,0 +1,100 @@
+{
+  "name": "urs-app",
+  "version": "0.5.2",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "urs-app": "bin/urs-app.mjs"
+  },
+  "scripts": {
+    "start": "node src/server.ts",
+    "mcp": "node src/mcp.ts",
+    "build": "vite build",
+    "dev": "vite",
+    "typecheck": "tsc -p tsconfig.json && tsc -p web/tsconfig.json",
+    "test": "vitest run",
+    "postinstall": "chmod +x node_modules/node-pty/prebuilds/*/spawn-helper 2>/dev/null || true",
+    "app": "node scripts/app-bauen.mjs",
+    "app:start": "node scripts/app-bauen.mjs --nur-buendeln && electron .",
+    "plugin": "node scripts/plugin-bauen.mjs"
+  },
+  "engines": {
+    "node": ">=23.6"
+  },
+  "dependencies": {
+    "node-pty": "^1.1.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "@xyflow/react": "^12.12.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "elkjs": "^0.12.0",
+    "esbuild": "^0.28.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2",
+    "ws": "^8.22.0",
+    "zod": "^4.6.5"
+  },
+  "allowScripts": {
+    "node-pty@1.1.0": true,
+    "electron@44.5.1": true,
+    "esbuild@0.28.2": true
+  },
+  "main": "electron-dist/main.mjs",
+  "productName": "Virtuv",
+  "description": "Plan your app as a flowchart with Claude Code",
+  "author": "Virtuv",
+  "build": {
+    "appId": "app.urswerkbank.mac",
+    "productName": "Virtuv",
+    "copyright": "Virtuv",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron-dist/**",
+      "web/dist/**",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/node-pty/**"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "identity": "-"
+    },
+    "dmg": {
+      "title": "Virtuv"
+    },
+    "electronFuses": {
+      "runAsNode": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": true,
+      "onlyLoadAppFromAsar": true,
+      "enableCookieEncryption": false
+    }
+  }
+}

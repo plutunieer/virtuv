@@ -1,0 +1,15 @@
+{
+  "name": "virtuv",
+  "description": "Virtuv: plan first as a flowchart, approve, then build.",
+  "owner": {
+    "name": "Virtuv",
+    "url": "https://virtuv.dev"
+  },
+  "plugins": [
+    {
+      "name": "virtuv",
+      "source": "./",
+      "description": "Plan every project as a flowchart first, approve it in the browser, then let Claude build exactly that."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "virtuv": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/dist/mcp.mjs"
+      ],
+      "env": {
+        "URS_APP_PORT": "8832",
+        "URS_APP_SERVER_DATEI": "${CLAUDE_PLUGIN_ROOT}/dist/server.mjs",
+        "URS_APP_PLUGIN": "1"
+      }
+    }
+  }
+}

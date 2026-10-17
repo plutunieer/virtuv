@@ -1,0 +1,20 @@
+{
+  "name": "virtuv",
+  "displayName": "Virtuv",
+  "version": "0.5.0",
+  "description": "Plan every project as a flowchart first, approve it in the browser, then let Claude build exactly that — with review, test and commit.",
+  "author": {
+    "name": "Virtuv",
+    "url": "https://virtuv.dev"
+  },
+  "homepage": "https://virtuv.dev",
+  "license": "MIT",
+  "repository": "https://github.com/plutunieer/virtuv-plugin",
+  "keywords": [
+    "planning",
+    "requirements",
+    "flowchart",
+    "approval",
+    "workflow"
+  ]
+}
