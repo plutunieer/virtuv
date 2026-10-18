@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtuv Demo</title>
+<meta name="description" content="Click through Virtuv: describe a task, Claude draws the flow, answer its questions, approve, and Claude builds.">
+<base href="/demo/">
+<link rel="icon" href="icon.png">
+<link rel="preload" as="image" href="approved.jpg">
+<style>
+  :root { --bg: #f4f2fb; --ink: #15122b; --muted: #4d4868; --violet: #5b4fd6; --line: #ddd8f0; --green: #1f8a4c; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: -apple-system, "Inter", "Helvetica Neue", sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 1180px; width: 100%; margin: 0 auto; }
+  .marke { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 19px; color: #4b3fb5; text-decoration: none; }
+  .marke img { width: 30px; height: 30px; border-radius: 7px; }
+  .punkte { display: flex; gap: 8px; }
+  .punkte i { width: 10px; height: 10px; border-radius: 50%; background: #cfc9ec; }
+  .punkte i.an { background: var(--violet); }
+  main { flex: 1; max-width: 1180px; width: 100%; margin: 0 auto; padding: 8px 24px 32px; }
+  .nr { display: inline-block; background: var(--violet); color: #fff; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px; margin-bottom: 10px; }
+  h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.1; letter-spacing: -0.02em; }
+  h1:focus { outline: none; }
+  .u { color: var(--muted); font-size: 18px; margin: 8px 0 22px; }
+  .schritt { display: none; }
+  .schritt.an { display: block; }
+  button { font: inherit; cursor: pointer; }
+  .los { background: var(--violet); color: #fff; border: 0; border-radius: 10px; padding: 12px 22px; font-weight: 600; font-size: 16px; }
+  .los:disabled { opacity: .45; cursor: default; }
+
+  /* Terminal */
+  .term { background: #17142b; border-radius: 14px; box-shadow: 0 20px 50px rgba(30,20,90,.25); overflow: hidden; max-width: 900px; }
+  .term .leiste { height: 34px; background: #24203d; display: flex; align-items: center; gap: 7px; padding: 0 14px; }
+  .term .leiste i { width: 11px; height: 11px; border-radius: 50%; background: #4a4568; }
+  .term .inhalt { padding: 26px 28px 30px; font: 19px/1.6 "SF Mono", Menlo, monospace; color: #e9e6ff; min-height: 150px; }
+  .term .ich { color: #a99cff; }
+  .term .antwort { color: #9be3b5; margin-top: 14px; display: none; }
+  .cursor { display: inline-block; width: 10px; height: 21px; background: #a99cff; vertical-align: -4px; margin-left: 3px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .reihe { display: flex; gap: 12px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
+
+  /* Bildschirm mit Klickfläche */
+  .bild { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(40,30,110,.16); background: #fff; }
+  .bild img { width: 100%; display: block; }
+  .ziel { position: absolute; padding: 0; border: 3px solid var(--violet); border-radius: 10px; background: rgba(91,79,214,.12); animation: puls 1.4s ease-in-out infinite; cursor: pointer; }
+  @keyframes puls { 50% { box-shadow: 0 0 0 10px rgba(91,79,214,.18); } }
+  .tipp { position: absolute; background: var(--ink); color: #fff; font-size: 14px; padding: 8px 12px; border-radius: 8px; white-space: nowrap; pointer-events: none; }
+  .panel { position: absolute; right: 2%; top: 14%; width: min(380px, 44%); background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px; box-shadow: 0 16px 40px rgba(40,30,110,.18); }
+  .panel h3 { font-size: 12px; letter-spacing: .08em; color: #4b5568; margin-bottom: 10px; }
+  .frage { background: #fffaf0; border: 1px solid #f1e3c3; border-radius: 10px; padding: 12px; margin-bottom: 10px; font-size: 15px; }
+  .frage.ok { background: #effaf3; border-color: #bfe6cc; }
+  .frage .wahl { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .frage .wahl button { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 6px 10px; font-size: 14px; }
+  .frage .gewaehlt { color: var(--green); font-size: 14px; margin-top: 6px; }
+  .hinweis { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .toast { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); background: var(--ink); color: #fff; padding: 14px 20px; border-radius: 12px; font-size: 16px; display: none; }
+
+  /* Bauen */
+  .stufen { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 10px 0 18px; }
+  .stufe { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; font-weight: 600; font-size: 17px; opacity: .45; transition: opacity .3s; }
+  .stufe.fertig { opacity: 1; }
+  .stufe em { font-style: normal; color: var(--green); margin-left: 6px; visibility: hidden; }
+  .stufe.fertig em { visibility: visible; }
+  .app { background: var(--violet); color: #fff; border-radius: 12px; padding: 14px 22px; font-weight: 700; font-size: 18px; opacity: .3; transition: opacity .3s; }
+  .app.fertig { opacity: 1; }
+  .pfeil { color: #8a80d8; }
+  .ende { margin-top: 26px; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: 14px; display: none; }
+  .ende p { color: var(--muted); margin: 6px 0 14px; }
+  .ende a { display: inline-block; text-decoration: none; }
+  .zurueck { background: none; border: 0; color: var(--violet); margin-left: 6px; }
+  @media (max-width: 700px) { .ziel { min-width: 44px; min-height: 44px; } .panel { position: static; width: auto; margin: 12px; } .tipp { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <a class="marke" href="/"><img src="icon.png" alt="">Virtuv</a>
+  <div class="punkte" id="punkte"></div>
+</header>
+<main>
+  <!-- 1: Aufgabe -->
+  <section class="schritt" data-nr="1">
+    <span class="nr">Step 1 of 5</span>
+    <h1>Describe your task</h1>
+    <p class="u">You type it into your Claude Code terminal, in plain words.</p>
+    <div class="term"><div class="leiste"><i></i><i></i><i></i></div>
+      <div class="inhalt"><span class="ich">&gt;</span> <span id="tippen"></span><span class="cursor"></span>
+        <div class="antwort" id="antwort1">Claude: Planning first. Drawing the flow for you to review…</div>
+      </div>
+    </div>
+    <div class="reihe"><button class="los" id="senden" disabled>Send to Claude</button></div>
+  </section>
+
+  <!-- 2: Ablauf -->
+  <section class="schritt" data-nr="2">
+    <span class="nr">Step 2 of 5</span>
+    <h1>Claude turns it into a flow</h1>
+    <p class="u">A draft: every block has short, testable requirements. New parts are marked. Approve is still locked.</p>
+    <div class="bild"><img src="draft.jpg" alt="Habit Tracker draft flowchart in Virtuv">
+      <button type="button" class="ziel" style="left:42.6%;top:44.6%;width:11.8%;height:6.8%" data-weiter aria-label="Open Claude's question"></button>
+      <div class="tipp" style="left:55.5%;top:45.6%">Claude has a question here — click</div>
+    </div>
+  </section>
+
+  <!-- 3: Fragen -->
+  <section class="schritt" data-nr="3">
+    <span class="nr">Step 3 of 5</span>
+    <h1>Answer Claude's questions</h1>
+    <p class="u">Claude asks instead of guessing. Pick an answer for both questions.</p>
+    <div class="bild"><img src="draft.jpg" alt="">
+      <div class="panel">
+        <h3>QUESTIONS</h3>
+        <div class="frage" data-frage>Should a streak survive one missed day per week?
+          <div class="wahl"><button>Yes, one free day</button><button>No, reset it</button></div>
+        </div>
+        <div class="frage" data-frage>iPhone only, or Android too?
+          <div class="wahl"><button>iPhone only</button><button>Both</button></div>
+        </div>
+        <p class="hinweis" id="rest" role="status">2 questions open — Approve stays locked.</p>
+      </div>
+      <div class="toast" id="toast" role="status">Claude updates the plan with your answers → Version 2</div>
+    </div>
+  </section>
+
+  <!-- 4: Freigeben -->
+  <section class="schritt" data-nr="4">
+    <span class="nr">Step 4 of 5</span>
+    <h1>You approve</h1>
+    <p class="u">Claude worked your answers into Version 2. Nothing is open any more. Only you can press Approve. Click it.</p>
+    <div class="bild" id="freigabeBild"><img src="ready.jpg" alt="Version 2, all questions answered" id="freigabeImg">
+      <button type="button" class="ziel" id="approve" style="left:91.6%;top:0.8%;width:7.6%;height:5.8%" aria-label="Approve"></button>
+      <div class="tipp" id="approveTipp" style="right:9%;top:1.5%">Click Approve</div>
+    </div>
+    <div class="reihe"><button class="los" id="weiter4" style="display:none">Next: Claude builds →</button></div>
+  </section>
+
+  <!-- 5: Bauen -->
+  <section class="schritt" data-nr="5">
+    <span class="nr">Step 5 of 5</span>
+    <h1>Claude builds the app</h1>
+    <p class="u">Exactly the approved version, in your Claude Code terminal. A failed review or test goes back to coding.</p>
+    <div class="stufen">
+      <div class="stufe">Code<em>✓</em></div><span class="pfeil">→</span>
+      <div class="stufe">Independent review<em>✓</em></div><span class="pfeil">→</span>
+      <div class="stufe">Test<em>✓</em></div><span class="pfeil">→</span>
+      <div class="stufe">Commit<em>✓</em></div><span class="pfeil">→</span>
+      <div class="app">Your app</div>
+    </div>
+    <div class="ende" id="ende">
+      <h2>That's Virtuv.</h2>
+      <p>Free and open source for Mac. Uses your own Claude Code subscription.</p>
+      <a class="los" href="https://github.com/plutunieer/virtuv">Get it on GitHub</a>
+      <button class="zurueck" id="nochmal">Start again</button>
+    </div>
+  </section>
+</main>
+<script>
+  const schritte = [...document.querySelectorAll(".schritt")];
+  const punkte = document.getElementById("punkte");
+  schritte.forEach(() => punkte.appendChild(document.createElement("i")));
+  let aktuell = 0;
+  function zeige(i) {
+    aktuell = i;
+    schritte.forEach((s, n) => s.classList.toggle("an", n === i));
+    [...punkte.children].forEach((p, n) => p.classList.toggle("an", n <= i));
+    window.scrollTo(0, 0);
+    const h = schritte[i].querySelector("h1"); h.tabIndex = -1; h.focus({ preventScroll: true });
+    if (i === 0) tippe();
+    if (i === 4) baue();
+  }
+
+  // 1: Aufgabe tippt sich selbst
+  const text = "Build me a habit tracker. I add habits, tick them off every day, keep streaks and get a reminder.";
+  const ziel = document.getElementById("tippen"), senden = document.getElementById("senden");
+  function tippe() {
+    ziel.textContent = ""; senden.disabled = true; document.getElementById("antwort1").style.display = "none";
+    let n = 0;
+    const t = setInterval(() => { ziel.textContent = text.slice(0, ++n); if (n >= text.length) { clearInterval(t); senden.disabled = false; } }, 22);
+  }
+  senden.onclick = () => {
+    senden.disabled = true;
+    document.getElementById("antwort1").style.display = "block";
+    setTimeout(() => zeige(1), 1300);
+  };
+
+  // 2: Klick auf den markierten Block
+  document.querySelector("[data-weiter]").onclick = () => zeige(2);
+
+  // 3: Fragen beantworten
+  const fragen = [...document.querySelectorAll("[data-frage]")];
+  const rest = document.getElementById("rest");
+  fragen.forEach((f) => f.querySelectorAll("button").forEach((b) => b.onclick = () => {
+    f.classList.add("ok");
+    const g = document.createElement("div"); g.className = "gewaehlt"; g.textContent = `Answer: ${b.textContent}`;
+    f.querySelector(".wahl").replaceWith(g);
+    const offen = fragen.filter((x) => !x.classList.contains("ok")).length;
+    rest.textContent = offen ? `${offen} question open — Approve stays locked.` : "All answered.";
+    if (!offen) {
+      const toast = document.getElementById("toast");
+      toast.style.display = "block";
+      setTimeout(() => { toast.style.display = "none"; zeige(3); }, 1800);
+    }
+  }));
+
+  // 4: Freigeben
+  document.getElementById("approve").onclick = () => {
+    document.getElementById("freigabeImg").src = "approved.jpg";
+    document.getElementById("approve").style.display = "none";
+    document.getElementById("approveTipp").style.display = "none";
+    document.querySelector('[data-nr="4"] .u').textContent = "Approved. Version 2 is now frozen — this is what Claude builds.";
+    document.getElementById("weiter4").style.display = "inline-block";
+  };
+  document.getElementById("weiter4").onclick = (e) => { e.currentTarget.disabled = true; zeige(4); };
+
+  // 5: Bauen läuft ab
+  function baue() {
+    const teile = [...document.querySelectorAll(".stufe, .app")];
+    teile.forEach((t) => t.classList.remove("fertig"));
+    document.getElementById("ende").style.display = "none";
+    teile.forEach((t, n) => setTimeout(() => t.classList.add("fertig"), 700 * (n + 1)));
+    setTimeout(() => document.getElementById("ende").style.display = "block", 700 * (teile.length + 1));
+  }
+  document.getElementById("nochmal").onclick = () => {
+    location.reload();
+  };
+
+  zeige(0);
+</script>
+</body>
+</html>

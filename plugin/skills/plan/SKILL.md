@@ -9,6 +9,8 @@ argument-hint: "[what you want to build]"
 The project folder is the current working directory. Pass it as `projekt_ordner` to every Virtuv tool.
 What the user wants: $ARGUMENTS
 
+Answer as briefly as possible. Only what matters: result, open question, the user's next step. Leave out everything else.
+
 ## 1. Plan (before approval)
 
 - Check the state with `urs_get_feedback` (an error just means there is no URS yet).

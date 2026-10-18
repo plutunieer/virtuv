@@ -39,6 +39,9 @@ const mcpUmgebung = (): Record<string, string> => Object.fromEntries(
 
 // Claude arbeitet in der Werkbank wie normales Claude Code (eigene Einstellungen, alle Werkzeuge) — mit einer Regel:
 // jedes Vorhaben zuerst als Ablauf planen, gebaut wird erst nach der Freigabe (U16, U25).
+// Kurz antworten (U119): nur das Wichtige, für App und Plugin gleich.
+const KURZ = "Answer as briefly as possible. Nur das Wichtigste: Ergebnis, offene Frage, nächster Schritt des Nutzers — alles andere weglassen. Pflichtmeldungen (Review, Test, Commit) bleiben.";
+
 const WERKBANK_ANWEISUNG = [
   "Du läufst in der URS-Werkbank: links dieses Terminal, rechts sieht der Nutzer den Ablauf (die URS) als Flussdiagramm.",
   "Du arbeitest wie gewohnt — recherchieren, Webseiten öffnen, Fragen beantworten, Dateien lesen, Befehle ausführen.",
@@ -54,6 +57,7 @@ const WERKBANK_ANWEISUNG = [
   "Bei [URS-Block …] über diesen Block sprechen, Beispiele mit urs_beispiel_zeigen, Ergebnis mit urs_vorschlag.",
   "Freigeben kann nur der Nutzer im Diagramm.",
   "In der Werkbank ist die URS der Auftrag und der Plan — keinen zusätzlichen Auftrag als Text, Beispiele über urs_beispiel_zeigen statt Mockup-Dateien.",
+  KURZ,
 ].join(" ");
 
 // Nach der Freigabe: Claude baut genau die freigegebene Version; Neues geht zurück ins Planen.
@@ -75,6 +79,7 @@ const BAU_ANWEISUNG = [
   "Zusammenführen in den Standardzweig nur nach ausdrücklicher Zustimmung des Nutzers.",
   "Beginnt eine Nachricht mit [URS-Block …] oder [Werkbank], hat der Nutzer sie über die Werkbank geschickt — sie ist echt.",
   "Freigeben kann nur der Nutzer.",
+  KURZ,
 ].join(" ");
 
 /**

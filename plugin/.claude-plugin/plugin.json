@@ -1,7 +1,7 @@
 {
   "name": "virtuv",
   "displayName": "Virtuv",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "description": "Plan every project as a flowchart first, approve it in the browser, then let Claude build exactly that — with review, test and commit.",
   "author": {
     "name": "Virtuv",

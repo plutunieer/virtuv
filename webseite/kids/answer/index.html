@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtuv Kids – Demo answer</title>
+<meta name="description" content="Sample answer from the Virtuv Kids demo: why is the sky blue?">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; }
+  body { display: flex; font-family: system-ui, -apple-system, sans-serif; background: #1E1E1E; }
+  #term { width: 30%; min-height: 100%; display: flex; flex-direction: column; background: #1E1E1E; color: #e6e6e6;
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 18px; padding: 18px 16px; }
+  #term .hd { color: #ffb86c; font-weight: 700; font-size: 20px; margin-bottom: 14px; }
+  #log { flex: 1; }
+  .entry { border-radius: 8px; padding: 6px 8px; background: #2c2c2c; }
+  .entry .q { color: #50fa7b; }
+  .entry .st { color: #9a9a9a; font-size: 15px; margin-left: 18px; }
+  .foot { margin-top: 18px; font: 13px system-ui, sans-serif; display: flex; gap: 16px; flex-wrap: wrap; }
+  .foot a { color: #b8b0ff; }
+  #view { width: 70%; min-height: 100%; color: #2b2257; padding: 32px 28px;
+    background: linear-gradient(160deg, #ffe7a8 0%, #ffc4d6 45%, #b9d7ff 100%); }
+  h1 { font-size: 38px; margin: 0 0 18px; text-align: center; }
+  .pic { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto 22px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 760px; margin: 0 auto; }
+  .card { background: rgba(255,255,255,.75); border-radius: 18px; padding: 16px; font-size: 18px; line-height: 1.4; text-align: center; }
+  .card b { display: block; font-size: 40px; margin-bottom: 6px; }
+  .badge { position: fixed; top: 12px; right: 12px; background: #fff; color: #5B4FD6; border: 1px solid #5B4FD6; border-radius: 999px; padding: 4px 12px; font-size: 13px; }
+  @media (max-width: 760px) {
+    body { flex-direction: column; }
+    #term, #view { width: 100%; min-height: auto; }
+    .cards { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+  <span class="badge">Demo</span>
+  <section id="term">
+    <div class="hd">🚀 virtuv kids</div>
+    <div id="log">
+      <div class="entry"><div class="q">&gt; Why is the sky blue?</div><div class="st">✓ answered</div></div>
+    </div>
+    <div class="foot">
+      <a href="/kids/">Ask again</a>
+      <a href="https://github.com/plutunieer/virtuv-kids">Virtuv Kids on GitHub</a>
+      <a href="/">Back to Virtuv</a>
+    </div>
+  </section>
+  <section id="view">
+    <h1>Why is the sky blue? 🌍</h1>
+    <svg class="pic" viewBox="0 0 520 220" role="img" aria-label="Sunlight reaches the air and the blue light bounces all over the sky">
+      <rect x="0" y="0" width="520" height="220" rx="20" fill="#8fc6ff"/>
+      <circle cx="70" cy="70" r="38" fill="#ffd34d"/>
+      <g stroke-width="6" stroke-linecap="round">
+        <line x1="115" y1="70" x2="250" y2="110" stroke="#ff5a5a"/>
+        <line x1="115" y1="80" x2="250" y2="120" stroke="#ffb347"/>
+        <line x1="115" y1="90" x2="250" y2="130" stroke="#3b6cff"/>
+        <path d="M250 130 l50 -60 M250 130 l70 10 M250 130 l40 60 M250 130 l-30 70" stroke="#3b6cff" stroke-dasharray="10 8"/>
+      </g>
+      <circle cx="250" cy="125" r="12" fill="#fff"/>
+      <rect x="0" y="190" width="520" height="30" fill="#6fcf6f"/>
+      <text x="380" y="60" font-size="22" font-family="system-ui" fill="#1d2a6b">blue bounces</text>
+      <text x="380" y="88" font-size="22" font-family="system-ui" fill="#1d2a6b">everywhere!</text>
+    </svg>
+    <div class="cards">
+      <div class="card"><b>☀️</b>Sunlight looks white, but it has all the colors inside.</div>
+      <div class="card"><b>💨</b>Tiny bits of air bump into the light.</div>
+      <div class="card"><b>💙</b>Blue bounces around the most, so the whole sky looks blue!</div>
+    </div>
+  </section>
+</body>
+</html>

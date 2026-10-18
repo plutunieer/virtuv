@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Virtuv Kids – Demo</title>
+<meta name="description" content="Virtuv Kids demo: a child types a question and gets the answer as a colorful page.">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { min-height: 100vh; }
+  body { display: flex; font-family: system-ui, -apple-system, sans-serif; background: #1E1E1E; }
+  #term { width: 30%; min-height: 100%; display: flex; flex-direction: column; background: #1E1E1E; color: #e6e6e6;
+    font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 18px; padding: 18px 16px; }
+  #term .hd { color: #ffb86c; font-weight: 700; font-size: 20px; margin-bottom: 14px; }
+  #log { flex: 1; }
+  #line { margin-top: 12px; font-size: 22px; display: flex; align-items: flex-start; gap: 8px; }
+  #mirror { flex: 1; min-height: 32px; white-space: pre-wrap; word-wrap: break-word; color: #fff; }
+  #mirror::before { content: '> '; color: #50fa7b; }
+  .cur { display: inline-block; width: 12px; height: 24px; background: #50fa7b; vertical-align: -4px; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  #go { font: 700 18px system-ui, sans-serif; color: #1E1E1E; background: #50fa7b; border: 0; border-radius: 10px; padding: 6px 14px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .foot { margin-top: 18px; font: 13px system-ui, sans-serif; display: flex; gap: 16px; flex-wrap: wrap; }
+  .foot a { color: #b8b0ff; }
+  #view { width: 70%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #2b2257;
+    background: linear-gradient(160deg, #ffe7a8 0%, #ffc4d6 45%, #b9d7ff 100%); padding: 24px; }
+  .emoji { font-size: 90px; }
+  .big { font-size: 34px; font-weight: 800; }
+  .sub { font-size: 20px; margin-top: 8px; }
+  .badge { position: fixed; top: 12px; right: 12px; background: #fff; color: #5B4FD6; border: 1px solid #5B4FD6; border-radius: 999px; padding: 4px 12px; font-size: 13px; }
+  @media (max-width: 760px) {
+    body { flex-direction: column; }
+    #term, #view { width: 100%; min-height: auto; }
+    #view { min-height: 60vh; }
+  }
+</style>
+</head>
+<body>
+  <span class="badge">Demo</span>
+  <section id="term">
+    <div class="hd">🚀 virtuv kids</div>
+    <div id="log"></div>
+    <div id="line">
+      <div id="mirror">Why is the sky blue?<span class="cur"></span></div>
+      <a id="go" href="/kids/answer/">Ask ⏎</a>
+    </div>
+    <div class="foot">
+      <a href="https://github.com/plutunieer/virtuv-kids">Virtuv Kids on GitHub</a>
+      <a href="/">Back to Virtuv</a>
+    </div>
+  </section>
+  <section id="view">
+    <div class="emoji">👋</div>
+    <div class="big">Ask me anything!</div>
+    <div class="sub">Press “Ask” to see the answer.</div>
+  </section>
+</body>
+</html>

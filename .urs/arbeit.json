@@ -1,5 +1,5 @@
 {
-  "version": 40,
+  "version": 50,
   "knoten": [
     {
       "id": "idee",
@@ -19,7 +19,8 @@
         "U77",
         "U80",
         "U81",
-        "U86"
+        "U86",
+        "U119"
       ]
     },
     {
@@ -44,6 +45,17 @@
       "text": "Run plan command",
       "anforderungen": [
         "U72"
+      ]
+    },
+    {
+      "id": "regelhook",
+      "typ": "schritt",
+      "text": "Hook enforces rules",
+      "anforderungen": [
+        "U121",
+        "U122",
+        "U123",
+        "U124"
       ]
     },
     {
@@ -281,20 +293,36 @@
       "anforderungen": [
         "U116"
       ]
+    },
+    {
+      "id": "farbe",
+      "typ": "schritt",
+      "text": "Website look & links",
+      "anforderungen": [
+        "U117",
+        "U118",
+        "U130",
+        "U131",
+        "U132"
+      ]
     }
   ],
   "kanten": [
     {
       "von": "idee",
+      "nach": "regelhook"
+    },
+    {
+      "von": "planbefehl",
+      "nach": "regelhook"
+    },
+    {
+      "von": "regelhook",
       "nach": "zeichnen"
     },
     {
       "von": "plugin",
       "nach": "planbefehl"
-    },
-    {
-      "von": "planbefehl",
-      "nach": "zeichnen"
     },
     {
       "von": "zeichnen",
@@ -436,6 +464,10 @@
     },
     {
       "von": "knopf",
+      "nach": "farbe"
+    },
+    {
+      "von": "farbe",
       "nach": "fertig"
     }
   ],
@@ -452,111 +484,116 @@
       "x": 340,
       "y": 124
     },
-    "zeichnen": {
+    "regelhook": {
       "x": 80,
       "y": 244
     },
-    "selbstsicht": {
+    "zeichnen": {
       "x": 80,
       "y": 374
     },
+    "selbstsicht": {
+      "x": 80,
+      "y": 494
+    },
     "sauber": {
       "x": 90,
-      "y": 490
+      "y": 610
     },
     "smart": {
       "x": 80,
-      "y": 644
+      "y": 764
     },
     "smartok": {
       "x": 90,
-      "y": 760
+      "y": 890
     },
     "pruefen": {
       "x": 80,
-      "y": 914
+      "y": 1034
     },
     "ansicht": {
       "x": 10,
-      "y": 1034
+      "y": 1154
     },
     "kommentieren": {
       "x": 270,
-      "y": 1034
+      "y": 1154
     },
     "erledigt": {
       "x": 280,
-      "y": 1160
+      "y": 1280
     },
     "ueberarbeiten": {
       "x": 500,
-      "y": 1304
+      "y": 1434
     },
     "freigeben": {
       "x": 240,
-      "y": 1304
+      "y": 1434
     },
     "eingefroren": {
       "x": 245,
-      "y": 1432
+      "y": 1552
     },
     "hatordner": {
       "x": 250,
-      "y": 1560
+      "y": 1680
     },
     "ordner": {
       "x": 300,
-      "y": 1704
+      "y": 1824
     },
     "bauen": {
       "x": 440,
-      "y": 1824
+      "y": 1954
     },
     "review": {
       "x": 440,
-      "y": 1954
+      "y": 2074
     },
     "reviewok": {
       "x": 450,
-      "y": 2070
+      "y": 2190
     },
     "test": {
       "x": 440,
-      "y": 2224
+      "y": 2344
     },
     "testok": {
       "x": 450,
-      "y": 2340
+      "y": 2470
     },
     "commit": {
       "x": 445,
-      "y": 2492
+      "y": 2612
     },
     "wunsch": {
       "x": 450,
-      "y": 2620
+      "y": 2740
     },
     "fertig": {
       "x": 200,
-      "y": 2898
+      "y": 3148
     },
     "geheim": {
       "x": 440,
-      "y": 2774
+      "y": 2894
     },
     "oeffentlich": {
       "x": 440,
-      "y": 2894
+      "y": 3014
     },
     "knopf": {
       "x": 440,
-      "y": 3014
+      "y": 3134
+    },
+    "farbe": {
+      "x": 440,
+      "y": 3254
     }
   },
   "fest": [],
   "kommentare": [],
-  "antworten": {
-    "F9": "ok",
-    "F10": "yes"
-  }
+  "antworten": {}
 }

@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -236,5 +236,34 @@ describe("Bau-Ablauf in der Anweisung (U61–U69) und Längenregel (U48)", () =>
     const t = prompt("planen");
     expect(t).not.toContain("git push");
     expect(t).toContain("höchstens 12 Wörter");
+  });
+});
+
+// U119: Claude wird angewiesen, so kurz wie möglich zu antworten — in App (beide Phasen) und Plugin.
+describe("Kürze-Anweisung (U119)", () => {
+  const SATZ = "Answer as briefly as possible.";
+  const prompt = (phase: "planen" | "bauen", ohneOrdner?: boolean) => {
+    const a = werkbankArgumente(phase, ohneOrdner);
+    const i = a.indexOf("--append-system-prompt");
+    expect(i, "--append-system-prompt fehlt").toBeGreaterThanOrEqual(0);
+    return a[i + 1];
+  };
+
+  it("planen (mit Projektordner): Anweisung enthält den Kürze-Satz", () => {
+    expect(prompt("planen", false)).toContain(SATZ);
+  });
+
+  it("planen (ohne Projektordner): Anweisung enthält den Kürze-Satz", () => {
+    expect(prompt("planen", true)).toContain(SATZ);
+  });
+
+  it("bauen: Anweisung enthält den Kürze-Satz", () => {
+    expect(prompt("bauen")).toContain(SATZ);
+  });
+
+  it("Plugin: plugin/skills/plan/SKILL.md enthält den Kürze-Satz", () => {
+    const wurzel = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+    const skill = readFileSync(join(wurzel, "plugin", "skills", "plan", "SKILL.md"), "utf8");
+    expect(skill).toContain(SATZ);
   });
 });
